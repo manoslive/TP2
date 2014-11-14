@@ -107,7 +107,7 @@
             // BTN_Suivant
             // 
             this.BTN_Suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Suivant.Location = new System.Drawing.Point(279, 202);
+            this.BTN_Suivant.Location = new System.Drawing.Point(402, 202);
             this.BTN_Suivant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BTN_Suivant.Name = "BTN_Suivant";
             this.BTN_Suivant.Size = new System.Drawing.Size(106, 32);

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.DataAccess.Client;
 
+//connection Oracle 
+//beloinem
+//cooperch
 namespace TP2
 {
     public partial class Form_Connection : Form

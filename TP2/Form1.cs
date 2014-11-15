@@ -158,5 +158,20 @@ namespace TP2
                 BTN_Ajouter.Enabled = false;
             }
         }
+
+        private void BTN_Ajouter_Click(object sender, EventArgs e)
+        {
+            //si les texts entré par l'usager son des lettres..
+            if(TB_Adresse.Text.All(Char.IsLetter) && TB_Nom.Text.All(Char.IsLetter)&&
+                TB_Prenom.Text.All(Char.IsLetter))
+            {
+                //si les texts entré par l'usager son des numero
+                if (TB_Empno.Text.All(Char.IsDigit) && TB_Salaire.Text.All(Char.IsDigit)&&
+                    TB_Echelon.Text.All(Char.IsDigit) && TB_CodeDep.Text.All(Char.IsLetterOrDigit))
+                {
+
+                }
+            }
+        }
     }
 }

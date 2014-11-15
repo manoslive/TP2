@@ -110,6 +110,7 @@ namespace TP2
             BTN_Suivant.Enabled = false;
             BTN_Precedent.Enabled = false;
             BTN_Modifier.Enabled = false;
+            BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = true;        
         }
 
@@ -138,7 +139,24 @@ namespace TP2
             BTN_Suivant.Enabled = true;
             BTN_Precedent.Enabled = true;
             BTN_Modifier.Enabled = true;
-            BTN_Afficher.Enabled = false; 
+            BTN_Afficher.Enabled = false;
+            BTN_Ajouter.Enabled = false;
+        }
+
+        private void TextBoxChanged(object sender, EventArgs e)
+        {
+            if(BTN_Debut.Enabled == false)
+            {
+                if (TB_Empno.Text != "" && TB_Nom.Text != "" && TB_Prenom.Text != "" && TB_Salaire.Text != "" &&
+                    TB_Echelon.Text != "" && TB_CodeDep.Text != "" && TB_Adresse.Text != "")
+                {
+                    BTN_Ajouter.Enabled = true;
+                }
+            }
+            else
+            {
+                BTN_Ajouter.Enabled = false;
+            }
         }
     }
 }

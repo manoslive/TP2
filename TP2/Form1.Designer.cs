@@ -67,7 +67,7 @@
             this.TB_Nom.Location = new System.Drawing.Point(142, 100);
             this.TB_Nom.Name = "TB_Nom";
             this.TB_Nom.Size = new System.Drawing.Size(238, 26);
-            this.TB_Nom.TabIndex = 0;
+            this.TB_Nom.TabIndex = 1;
             this.TB_Nom.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Prenom
@@ -75,7 +75,7 @@
             this.TB_Prenom.Location = new System.Drawing.Point(142, 157);
             this.TB_Prenom.Name = "TB_Prenom";
             this.TB_Prenom.Size = new System.Drawing.Size(238, 26);
-            this.TB_Prenom.TabIndex = 0;
+            this.TB_Prenom.TabIndex = 2;
             this.TB_Prenom.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_CodeDep
@@ -83,7 +83,7 @@
             this.TB_CodeDep.Location = new System.Drawing.Point(142, 211);
             this.TB_CodeDep.Name = "TB_CodeDep";
             this.TB_CodeDep.Size = new System.Drawing.Size(238, 26);
-            this.TB_CodeDep.TabIndex = 0;
+            this.TB_CodeDep.TabIndex = 3;
             this.TB_CodeDep.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Echelon
@@ -91,7 +91,7 @@
             this.TB_Echelon.Location = new System.Drawing.Point(529, 42);
             this.TB_Echelon.Name = "TB_Echelon";
             this.TB_Echelon.Size = new System.Drawing.Size(238, 26);
-            this.TB_Echelon.TabIndex = 0;
+            this.TB_Echelon.TabIndex = 4;
             this.TB_Echelon.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Salaire
@@ -99,7 +99,7 @@
             this.TB_Salaire.Location = new System.Drawing.Point(529, 100);
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(238, 26);
-            this.TB_Salaire.TabIndex = 0;
+            this.TB_Salaire.TabIndex = 5;
             this.TB_Salaire.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Adresse
@@ -107,7 +107,7 @@
             this.TB_Adresse.Location = new System.Drawing.Point(529, 157);
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(238, 26);
-            this.TB_Adresse.TabIndex = 0;
+            this.TB_Adresse.TabIndex = 6;
             this.TB_Adresse.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // BTN_Suivant
@@ -116,7 +116,7 @@
             this.BTN_Suivant.Location = new System.Drawing.Point(408, 315);
             this.BTN_Suivant.Name = "BTN_Suivant";
             this.BTN_Suivant.Size = new System.Drawing.Size(159, 50);
-            this.BTN_Suivant.TabIndex = 1;
+            this.BTN_Suivant.TabIndex = 0;
             this.BTN_Suivant.Text = "Suivant";
             this.BTN_Suivant.UseVisualStyleBackColor = true;
             this.BTN_Suivant.Click += new System.EventHandler(this.BTN_Suivant_Click);
@@ -127,7 +127,7 @@
             this.BTN_Precedent.Location = new System.Drawing.Point(245, 315);
             this.BTN_Precedent.Name = "BTN_Precedent";
             this.BTN_Precedent.Size = new System.Drawing.Size(157, 50);
-            this.BTN_Precedent.TabIndex = 1;
+            this.BTN_Precedent.TabIndex = 0;
             this.BTN_Precedent.Text = "Précédent";
             this.BTN_Precedent.UseVisualStyleBackColor = true;
             this.BTN_Precedent.Click += new System.EventHandler(this.BTN_Precedent_Click);
@@ -201,7 +201,7 @@
             this.BTN_Ajouter.Location = new System.Drawing.Point(245, 259);
             this.BTN_Ajouter.Name = "BTN_Ajouter";
             this.BTN_Ajouter.Size = new System.Drawing.Size(157, 50);
-            this.BTN_Ajouter.TabIndex = 1;
+            this.BTN_Ajouter.TabIndex = 0;
             this.BTN_Ajouter.Text = "Ajouter";
             this.BTN_Ajouter.UseVisualStyleBackColor = true;
             this.BTN_Ajouter.Click += new System.EventHandler(this.BTN_Ajouter_Click);
@@ -212,7 +212,7 @@
             this.BTN_Vider.Location = new System.Drawing.Point(571, 259);
             this.BTN_Vider.Name = "BTN_Vider";
             this.BTN_Vider.Size = new System.Drawing.Size(157, 50);
-            this.BTN_Vider.TabIndex = 1;
+            this.BTN_Vider.TabIndex = 0;
             this.BTN_Vider.Text = "Vider";
             this.BTN_Vider.UseVisualStyleBackColor = true;
             this.BTN_Vider.Click += new System.EventHandler(this.BTN_Vider_Click);
@@ -224,7 +224,7 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 28;
             this.dataGridView.Size = new System.Drawing.Size(755, 233);
-            this.dataGridView.TabIndex = 3;
+            this.dataGridView.TabIndex = 0;
             // 
             // BTN_Modifier
             // 
@@ -232,7 +232,7 @@
             this.BTN_Modifier.Location = new System.Drawing.Point(408, 259);
             this.BTN_Modifier.Name = "BTN_Modifier";
             this.BTN_Modifier.Size = new System.Drawing.Size(157, 50);
-            this.BTN_Modifier.TabIndex = 1;
+            this.BTN_Modifier.TabIndex = 0;
             this.BTN_Modifier.Text = "Modifier";
             this.BTN_Modifier.UseVisualStyleBackColor = true;
             // 
@@ -242,7 +242,7 @@
             this.BTN_Debut.Location = new System.Drawing.Point(31, 315);
             this.BTN_Debut.Name = "BTN_Debut";
             this.BTN_Debut.Size = new System.Drawing.Size(159, 50);
-            this.BTN_Debut.TabIndex = 4;
+            this.BTN_Debut.TabIndex = 0;
             this.BTN_Debut.Text = "Début";
             this.BTN_Debut.UseVisualStyleBackColor = true;
             this.BTN_Debut.Click += new System.EventHandler(this.BTN_Debut_Click);
@@ -253,7 +253,7 @@
             this.BTN_FIN.Location = new System.Drawing.Point(610, 315);
             this.BTN_FIN.Name = "BTN_FIN";
             this.BTN_FIN.Size = new System.Drawing.Size(159, 50);
-            this.BTN_FIN.TabIndex = 5;
+            this.BTN_FIN.TabIndex = 0;
             this.BTN_FIN.Text = "Fin";
             this.BTN_FIN.UseVisualStyleBackColor = true;
             this.BTN_FIN.Click += new System.EventHandler(this.BTN_FIN_Click);
@@ -264,7 +264,7 @@
             this.BTN_Afficher.Location = new System.Drawing.Point(82, 259);
             this.BTN_Afficher.Name = "BTN_Afficher";
             this.BTN_Afficher.Size = new System.Drawing.Size(157, 50);
-            this.BTN_Afficher.TabIndex = 6;
+            this.BTN_Afficher.TabIndex = 0;
             this.BTN_Afficher.Text = "Afficher";
             this.BTN_Afficher.UseVisualStyleBackColor = true;
             this.BTN_Afficher.Click += new System.EventHandler(this.BTN_Afficher_Click);

@@ -161,16 +161,28 @@ namespace TP2
 
         private void BTN_Ajouter_Click(object sender, EventArgs e)
         {
-            //si les texts entré par l'usager son des lettres..
-            if(TB_Adresse.Text.All(Char.IsLetter) && TB_Nom.Text.All(Char.IsLetter)&&
-                TB_Prenom.Text.All(Char.IsLetter))
+            //si les texts entré par l'usager son des lettres, ou des numéros, ou bien les 2..
+            if(TB_Adresse.Text.All(Char.IsLetterOrDigit) && TB_Nom.Text.All(Char.IsLetter)&&
+                TB_Prenom.Text.All(Char.IsLetter) && TB_Empno.Text.All(Char.IsDigit) && TB_Salaire.Text.All(Char.IsDigit)&&
+                   TB_Echelon.Text.All(Char.IsDigit) && TB_CodeDep.Text.All(Char.IsLetterOrDigit))
             {
-                //si les texts entré par l'usager son des numero
-                if (TB_Empno.Text.All(Char.IsDigit) && TB_Salaire.Text.All(Char.IsDigit)&&
-                    TB_Echelon.Text.All(Char.IsDigit) && TB_CodeDep.Text.All(Char.IsLetterOrDigit))
-                {
+                string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
 
+                try
+                {
+                    OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
+                    oraCom.CommandType = CommandType.Text;
+                    OracleDataReader OraRead = oraCom.ExecuteReader();
+                    AfficherTexte();
                 }
+                catch (Exception exsql1)
+                {
+                    MessageBox.Show(exsql1.Message.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Soyez certain que les champs sont remplis avec les bons types de caractères ");
             }
         }
     }

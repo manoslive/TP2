@@ -48,6 +48,8 @@
             this.BTN_Vider = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BTN_Modifier = new System.Windows.Forms.Button();
+            this.BTN_Debut = new System.Windows.Forms.Button();
+            this.BTN_FIN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +105,7 @@
             // BTN_Suivant
             // 
             this.BTN_Suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Suivant.Location = new System.Drawing.Point(608, 315);
+            this.BTN_Suivant.Location = new System.Drawing.Point(408, 315);
             this.BTN_Suivant.Name = "BTN_Suivant";
             this.BTN_Suivant.Size = new System.Drawing.Size(159, 50);
             this.BTN_Suivant.TabIndex = 1;
@@ -188,7 +190,7 @@
             // BTN_Inserer
             // 
             this.BTN_Inserer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Inserer.Location = new System.Drawing.Point(429, 315);
+            this.BTN_Inserer.Location = new System.Drawing.Point(163, 259);
             this.BTN_Inserer.Name = "BTN_Inserer";
             this.BTN_Inserer.Size = new System.Drawing.Size(157, 50);
             this.BTN_Inserer.TabIndex = 1;
@@ -198,7 +200,7 @@
             // BTN_Vider
             // 
             this.BTN_Vider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Vider.Location = new System.Drawing.Point(610, 245);
+            this.BTN_Vider.Location = new System.Drawing.Point(489, 259);
             this.BTN_Vider.Name = "BTN_Vider";
             this.BTN_Vider.Size = new System.Drawing.Size(157, 50);
             this.BTN_Vider.TabIndex = 1;
@@ -218,18 +220,42 @@
             // BTN_Modifier
             // 
             this.BTN_Modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Modifier.Location = new System.Drawing.Point(429, 245);
+            this.BTN_Modifier.Location = new System.Drawing.Point(326, 259);
             this.BTN_Modifier.Name = "BTN_Modifier";
             this.BTN_Modifier.Size = new System.Drawing.Size(157, 50);
             this.BTN_Modifier.TabIndex = 1;
             this.BTN_Modifier.Text = "Modifier";
             this.BTN_Modifier.UseVisualStyleBackColor = true;
             // 
+            // BTN_Debut
+            // 
+            this.BTN_Debut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.BTN_Debut.Location = new System.Drawing.Point(31, 315);
+            this.BTN_Debut.Name = "BTN_Debut";
+            this.BTN_Debut.Size = new System.Drawing.Size(159, 50);
+            this.BTN_Debut.TabIndex = 4;
+            this.BTN_Debut.Text = "Début";
+            this.BTN_Debut.UseVisualStyleBackColor = true;
+            this.BTN_Debut.Click += new System.EventHandler(this.BTN_Debut_Click);
+            // 
+            // BTN_FIN
+            // 
+            this.BTN_FIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.BTN_FIN.Location = new System.Drawing.Point(610, 315);
+            this.BTN_FIN.Name = "BTN_FIN";
+            this.BTN_FIN.Size = new System.Drawing.Size(159, 50);
+            this.BTN_FIN.TabIndex = 5;
+            this.BTN_FIN.Text = "Fin";
+            this.BTN_FIN.UseVisualStyleBackColor = true;
+            this.BTN_FIN.Click += new System.EventHandler(this.BTN_FIN_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1219, 405);
+            this.Controls.Add(this.BTN_FIN);
+            this.Controls.Add(this.BTN_Debut);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.LB_CodeDep);
             this.Controls.Add(this.LB_Prenom);
@@ -281,6 +307,8 @@
         private System.Windows.Forms.Button BTN_Vider;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button BTN_Modifier;
+        private System.Windows.Forms.Button BTN_Debut;
+        private System.Windows.Forms.Button BTN_FIN;
     }
 }
 

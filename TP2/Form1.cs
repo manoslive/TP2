@@ -34,9 +34,9 @@ namespace TP2
 
         private void AfficherTexte()
         {
+            string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes";
             try
             {
-                string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes";
                 OracleDataAdapter adapter2 = new OracleDataAdapter(sql, oracon);
                 if (monDataSet.Tables.Contains("TableEmployes"))
                 {
@@ -65,8 +65,6 @@ namespace TP2
             TB_Adresse.DataBindings.Add("Text", monDataSet, "TableEmployes.Adresse");
         }
 
-
-
         private void BTN_Suivant_Click(object sender, EventArgs e)
         {
             this.BindingContext[monDataSet, "TableEmployes"].Position += 1;
@@ -86,6 +84,16 @@ namespace TP2
         private void BTN_Precedent_Click(object sender, EventArgs e)
         {
             this.BindingContext[monDataSet, "TableEmployes"].Position -= 1;
+        }
+
+        private void BTN_FIN_Click(object sender, EventArgs e)
+        {
+            this.BindingContext[monDataSet, "TableEmployes"].Position = this.BindingContext[monDataSet, "TableEmployes"].Count;
+        }
+
+        private void BTN_Debut_Click(object sender, EventArgs e)
+        {
+            this.BindingContext[monDataSet, "TableEmployes"].Position = 0;
         }
     }
 }

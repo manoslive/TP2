@@ -44,13 +44,13 @@
             this.LB_Nom = new System.Windows.Forms.Label();
             this.LB_Prenom = new System.Windows.Forms.Label();
             this.LB_CodeDep = new System.Windows.Forms.Label();
-            this.BTN_Inserer = new System.Windows.Forms.Button();
+            this.BTN_Ajouter = new System.Windows.Forms.Button();
             this.BTN_Vider = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.BTN_Modifier = new System.Windows.Forms.Button();
             this.BTN_Debut = new System.Windows.Forms.Button();
             this.BTN_FIN = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // TB_Empno
@@ -187,15 +187,15 @@
             this.LB_CodeDep.TabIndex = 2;
             this.LB_CodeDep.Text = "Code Départ.";
             // 
-            // BTN_Inserer
+            // BTN_Ajouter
             // 
-            this.BTN_Inserer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Inserer.Location = new System.Drawing.Point(163, 259);
-            this.BTN_Inserer.Name = "BTN_Inserer";
-            this.BTN_Inserer.Size = new System.Drawing.Size(157, 50);
-            this.BTN_Inserer.TabIndex = 1;
-            this.BTN_Inserer.Text = "Ajouter";
-            this.BTN_Inserer.UseVisualStyleBackColor = true;
+            this.BTN_Ajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.BTN_Ajouter.Location = new System.Drawing.Point(163, 259);
+            this.BTN_Ajouter.Name = "BTN_Ajouter";
+            this.BTN_Ajouter.Size = new System.Drawing.Size(157, 50);
+            this.BTN_Ajouter.TabIndex = 1;
+            this.BTN_Ajouter.Text = "Ajouter";
+            this.BTN_Ajouter.UseVisualStyleBackColor = true;
             // 
             // BTN_Vider
             // 
@@ -208,14 +208,14 @@
             this.BTN_Vider.UseVisualStyleBackColor = true;
             this.BTN_Vider.Click += new System.EventHandler(this.BTN_Vider_Click);
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(894, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(294, 351);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(12, 371);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 28;
+            this.dataGridView.Size = new System.Drawing.Size(755, 233);
+            this.dataGridView.TabIndex = 3;
             // 
             // BTN_Modifier
             // 
@@ -253,10 +253,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1219, 405);
+            this.ClientSize = new System.Drawing.Size(791, 622);
             this.Controls.Add(this.BTN_FIN);
             this.Controls.Add(this.BTN_Debut);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.LB_CodeDep);
             this.Controls.Add(this.LB_Prenom);
             this.Controls.Add(this.LB_Nom);
@@ -266,7 +266,7 @@
             this.Controls.Add(this.LB_Echelon);
             this.Controls.Add(this.BTN_Vider);
             this.Controls.Add(this.BTN_Modifier);
-            this.Controls.Add(this.BTN_Inserer);
+            this.Controls.Add(this.BTN_Ajouter);
             this.Controls.Add(this.BTN_Precedent);
             this.Controls.Add(this.BTN_Suivant);
             this.Controls.Add(this.TB_Adresse);
@@ -279,7 +279,7 @@
             this.Name = "Form_Main";
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.Form_Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,9 +303,9 @@
         private System.Windows.Forms.Label LB_Nom;
         private System.Windows.Forms.Label LB_Prenom;
         private System.Windows.Forms.Label LB_CodeDep;
-        private System.Windows.Forms.Button BTN_Inserer;
+        private System.Windows.Forms.Button BTN_Ajouter;
         private System.Windows.Forms.Button BTN_Vider;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button BTN_Modifier;
         private System.Windows.Forms.Button BTN_Debut;
         private System.Windows.Forms.Button BTN_FIN;

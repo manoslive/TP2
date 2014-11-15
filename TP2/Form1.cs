@@ -30,11 +30,14 @@ namespace TP2
             }
             TB_Empno.Select();
             AfficherTexte();
+
+            BTN_Ajouter.Enabled = false;
         }
 
         private void AfficherTexte()
         {
             string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes order by empno";
+            int nbRangees=0;
             try
             {
                 OracleDataAdapter adapter2 = new OracleDataAdapter(sql, oracon);
@@ -46,6 +49,12 @@ namespace TP2
                 adapter2.Dispose();
                 Lier();
 
+                //insertion dans le DataGridView
+                while (monDataSet.Tables["TableEmployes"].Rows.Count > nbRangees)
+                {
+                    dataGridView.DataSource = monDataSet.Tables[nbRangees];
+                    nbRangees++;
+                }
             }
             catch (Exception bagel)
             {

@@ -50,6 +50,7 @@
             this.BTN_Modifier = new System.Windows.Forms.Button();
             this.BTN_Debut = new System.Windows.Forms.Button();
             this.BTN_FIN = new System.Windows.Forms.Button();
+            this.BTN_Afficher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,7 +191,7 @@
             // BTN_Ajouter
             // 
             this.BTN_Ajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Ajouter.Location = new System.Drawing.Point(163, 259);
+            this.BTN_Ajouter.Location = new System.Drawing.Point(245, 259);
             this.BTN_Ajouter.Name = "BTN_Ajouter";
             this.BTN_Ajouter.Size = new System.Drawing.Size(157, 50);
             this.BTN_Ajouter.TabIndex = 1;
@@ -200,7 +201,7 @@
             // BTN_Vider
             // 
             this.BTN_Vider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Vider.Location = new System.Drawing.Point(489, 259);
+            this.BTN_Vider.Location = new System.Drawing.Point(571, 259);
             this.BTN_Vider.Name = "BTN_Vider";
             this.BTN_Vider.Size = new System.Drawing.Size(157, 50);
             this.BTN_Vider.TabIndex = 1;
@@ -220,7 +221,7 @@
             // BTN_Modifier
             // 
             this.BTN_Modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.BTN_Modifier.Location = new System.Drawing.Point(326, 259);
+            this.BTN_Modifier.Location = new System.Drawing.Point(408, 259);
             this.BTN_Modifier.Name = "BTN_Modifier";
             this.BTN_Modifier.Size = new System.Drawing.Size(157, 50);
             this.BTN_Modifier.TabIndex = 1;
@@ -249,11 +250,23 @@
             this.BTN_FIN.UseVisualStyleBackColor = true;
             this.BTN_FIN.Click += new System.EventHandler(this.BTN_FIN_Click);
             // 
+            // BTN_Afficher
+            // 
+            this.BTN_Afficher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.BTN_Afficher.Location = new System.Drawing.Point(82, 259);
+            this.BTN_Afficher.Name = "BTN_Afficher";
+            this.BTN_Afficher.Size = new System.Drawing.Size(157, 50);
+            this.BTN_Afficher.TabIndex = 6;
+            this.BTN_Afficher.Text = "Afficher";
+            this.BTN_Afficher.UseVisualStyleBackColor = true;
+            this.BTN_Afficher.Click += new System.EventHandler(this.BTN_Afficher_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 622);
+            this.Controls.Add(this.BTN_Afficher);
             this.Controls.Add(this.BTN_FIN);
             this.Controls.Add(this.BTN_Debut);
             this.Controls.Add(this.dataGridView);
@@ -309,6 +322,7 @@
         private System.Windows.Forms.Button BTN_Modifier;
         private System.Windows.Forms.Button BTN_Debut;
         private System.Windows.Forms.Button BTN_FIN;
+        private System.Windows.Forms.Button BTN_Afficher;
     }
 }
 

@@ -32,12 +32,13 @@ namespace TP2
             AfficherTexte();
 
             BTN_Ajouter.Enabled = false;
+            BTN_Afficher.Enabled = false;
         }
 
         private void AfficherTexte()
         {
             string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes order by empno";
-            int nbRangees=0;
+
             try
             {
                 OracleDataAdapter adapter2 = new OracleDataAdapter(sql, oracon);
@@ -50,11 +51,7 @@ namespace TP2
                 Lier();
 
                 //insertion de chaque rangé dans le DataGridView
-                while (monDataSet.Tables["TableEmployes"].Rows.Count > nbRangees)
-                {
-                    dataGridView.DataSource = monDataSet.Tables[nbRangees];
-                    nbRangees++;
-                }
+                InsertionDataGridView();
             }
             catch (Exception bagel)
             {
@@ -62,7 +59,15 @@ namespace TP2
             }
 
         }
-
+        private void InsertionDataGridView()
+        {
+            int nbRangees = 0;
+            while (monDataSet.Tables["TableEmployes"].Rows.Count > nbRangees)
+            {
+                dataGridView.DataSource = monDataSet.Tables[nbRangees];
+                nbRangees++;
+            }
+        }
         private void Lier()
         {
             TB_Empno.DataBindings.Add("Text", monDataSet, "TableEmployes.Empno");
@@ -81,6 +86,16 @@ namespace TP2
 
         private void BTN_Vider_Click(object sender, EventArgs e)
         {
+            //Je ne suis pas certain si c'est la bonne facon de faire ceci...
+            TB_Empno.DataBindings.Clear();
+            TB_Nom.DataBindings.Clear();
+            TB_Prenom.DataBindings.Clear();
+            TB_CodeDep.DataBindings.Clear();
+            TB_Echelon.DataBindings.Clear();
+            TB_Salaire.DataBindings.Clear();
+            TB_Adresse.DataBindings.Clear();
+
+            //Ceci efface les données dans le binding
             TB_Empno.Text = "";
             TB_Nom.Text = "";
             TB_Prenom.Text = "";
@@ -88,6 +103,14 @@ namespace TP2
             TB_Echelon.Text = "";
             TB_Salaire.Text = "";
             TB_Adresse.Text = "";
+
+            //réglages de boutons
+            BTN_Debut.Enabled = false;
+            BTN_FIN.Enabled = false;
+            BTN_Suivant.Enabled = false;
+            BTN_Precedent.Enabled = false;
+            BTN_Modifier.Enabled = false;
+            BTN_Afficher.Enabled = true;        
         }
 
         private void BTN_Precedent_Click(object sender, EventArgs e)
@@ -103,6 +126,19 @@ namespace TP2
         private void BTN_Debut_Click(object sender, EventArgs e)
         {
             this.BindingContext[monDataSet, "TableEmployes"].Position = 0;
+        }
+
+        private void BTN_Afficher_Click(object sender, EventArgs e)
+        {
+            AfficherTexte();
+
+            //réglages de boutons
+            BTN_Debut.Enabled = true;
+            BTN_FIN.Enabled = true;
+            BTN_Suivant.Enabled = true;
+            BTN_Precedent.Enabled = true;
+            BTN_Modifier.Enabled = true;
+            BTN_Afficher.Enabled = false; 
         }
     }
 }

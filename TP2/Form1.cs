@@ -13,8 +13,9 @@ namespace TP2
 {
     public partial class Form_Main : Form
     {
-        private OracleConnection oracon = new OracleConnection();
+        private OracleConnection oracon = new OracleConnection(); //connection initialiser ici
         private DataSet monDataSet = new DataSet();
+        MaConnection maBelleConnection = new MaConnection();
         public Form_Main()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace TP2
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            Form_Connection connection = new Form_Connection(); // Passer en parametre le oracle connection
+            Form_Connection connection = new Form_Connection(oracon, maBelleConnection); // Passer en parametre le oracle connection
             if(connection.ShowDialog() == DialogResult.Cancel)
             {
                 //Application.Exit();
@@ -33,23 +34,49 @@ namespace TP2
 
         private void AfficherTexte()
         {
+            string sqlEmployes = "select Empno, nom, prenom, salaire, echelon, adresse, codeDep from Employes";
+
             try
             {
-                string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes";
-                OracleDataAdapter adapter2 = new OracleDataAdapter(sql, oracon);
-                if (monDataSet.Tables.Contains("TableEmployes"))
-                {
-                    monDataSet.Tables["TableEmployes"].Clear();
-                }
-                adapter2.Fill(monDataSet, "TableEmployes");
-                adapter2.Dispose();
-                Lier();
-                
+                OracleCommand oraCom = new OracleCommand(sqlEmployes, oracon);
+                oraCom.CommandType = CommandType.Text;
+                int nbligne = oraCom.ExecuteNonQuery();
+                MessageBox.Show("nombre de lignes mise à jour est: " + nbligne);
+                OracleDataReader OraRead = oraCom.ExecuteReader();
+
+                TB_Empno.Text = OraRead.GetInt32(0).ToString();
+                TB_Nom.Text = OraRead.GetString(1).ToString();
+                TB_Prenom.Text = OraRead.GetString(2);
+                TB_Salaire.Text = OraRead.GetInt32(3).ToString();
+                TB_Echelon.Text = OraRead.GetInt32(4).ToString();
+                TB_Adresse.Text = OraRead.GetString(5);
+                TB_CodeDep.Text = OraRead.GetChar(6).ToString();
             }
-            catch(Exception bagel)
+            catch (Exception exsql1)
             {
-                MessageBox.Show(bagel.Message.ToString());
+                MessageBox.Show(exsql1.Message.ToString());
             }
+
+
+
+            //test pour afficher dans les txtbox
+            //try
+            //{
+            //    string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes";
+            //    OracleDataAdapter adapter2 = new OracleDataAdapter(sql, oracon);
+            //    if (monDataSet.Tables.Contains("TableEmployes"))
+            //    {
+            //        monDataSet.Tables["TableEmployes"].Clear();
+            //    }
+            //    adapter2.Fill(monDataSet, "TableEmployes");
+            //    adapter2.Dispose();
+            //    Lier();
+                
+            //}
+            //catch(Exception bagel)
+            //{
+            //    MessageBox.Show(bagel.Message.ToString());
+            //}
 
         }
 

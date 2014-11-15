@@ -13,14 +13,14 @@ namespace TP2
 {
     public class MaConnection
     {
-        OracleConnection connection = new OracleConnection();
+        //OracleConnection connection = new OracleConnection();
         private string motDePasse;
         private string nomDutilisateur;
 
         private string Dsource = "(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
 "(HOST=205.237.244.251)(PORT=1521)))" + "(CONNECT_DATA=(SERVICE_NAME=ORCL.clg.qc.ca)))";
 
-        public bool Connect(string User, string Mdp)
+        public bool Connect(string User, string Mdp, OracleConnection connection)
         {
             string chaineConnection = "Data Source = " + Dsource + ";User Id =" + User + "; Password= " + Mdp;
             bool resultat = false;

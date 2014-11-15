@@ -49,7 +49,7 @@ namespace TP2
                 adapter2.Dispose();
                 Lier();
 
-                //insertion dans le DataGridView
+                //insertion de chaque rangé dans le DataGridView
                 while (monDataSet.Tables["TableEmployes"].Rows.Count > nbRangees)
                 {
                     dataGridView.DataSource = monDataSet.Tables[nbRangees];

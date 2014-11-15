@@ -34,7 +34,7 @@ namespace TP2
 
         private void AfficherTexte()
         {
-            string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes";
+            string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes order by empno";
             try
             {
                 OracleDataAdapter adapter2 = new OracleDataAdapter(sql, oracon);

@@ -414,6 +414,7 @@
             this.TB_NomRecherche.Size = new System.Drawing.Size(157, 26);
             this.TB_NomRecherche.TabIndex = 14;
             this.TB_NomRecherche.Visible = false;
+            this.TB_NomRecherche.TextChanged += new System.EventHandler(this.TB_NomRecherche_TextChanged);
             // 
             // CB_Dep
             // 

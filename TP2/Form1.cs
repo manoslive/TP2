@@ -312,6 +312,7 @@ namespace TP2
             LB_TextRecherche.Visible = true;
             TB_NomRecherche.Visible = true;
             CB_Dep.Visible = false;
+            TB_NomRecherche.Text = "";
             ChoixRechercher();
         }
 
@@ -348,6 +349,11 @@ namespace TP2
         private void CB_Dep_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TB_NomRecherche_TextChanged(object sender, EventArgs e)
+        {
+            BTN_Recherche.Enabled = true;
         }
     }
 }

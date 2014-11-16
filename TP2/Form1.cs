@@ -25,10 +25,9 @@ namespace TP2
         {
             Form_Connection connection = new Form_Connection(oracon, maBelleConnection); // Passer en parametre le oracle connection
             connection.ShowDialog();
-
+            FillDGVDepartement();
             TB_Empno.Select();
             AfficherTexte();
-            FillDGVDepartement();
             BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = false;
         }
@@ -47,9 +46,6 @@ namespace TP2
                 adapter2.Fill(monDataSet, "TableEmployes");
                 adapter2.Dispose();
                 Lier();
-
-                //insertion de chaque rangé dans le DataGridView
-                InsertionDataGridView();
             }
             catch (OracleException exsql2)
             {
@@ -57,15 +53,7 @@ namespace TP2
             }
 
         }
-        private void InsertionDataGridView()
-        {
-            int nbRangees = 0;
-            while (monDataSet.Tables["TableEmployes"].Rows.Count > nbRangees)
-            {
-                dataGridView.DataSource = monDataSet.Tables[nbRangees];
-                nbRangees++;
-            }
-        }
+
         private void Lier()
         {
             TB_Empno.DataBindings.Add("Text", monDataSet, "TableEmployes.Empno");

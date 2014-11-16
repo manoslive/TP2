@@ -46,7 +46,6 @@
             this.LB_CodeDep = new System.Windows.Forms.Label();
             this.BTN_Ajouter = new System.Windows.Forms.Button();
             this.BTN_Vider = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.BTN_Modifier = new System.Windows.Forms.Button();
             this.BTN_Debut = new System.Windows.Forms.Button();
             this.BTN_FIN = new System.Windows.Forms.Button();
@@ -60,7 +59,9 @@
             this.DGV_Departements = new System.Windows.Forms.DataGridView();
             this.LB_Information = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.codedep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbr_emp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).BeginInit();
             this.SuspendLayout();
             // 
@@ -227,19 +228,10 @@
             this.BTN_Vider.UseVisualStyleBackColor = true;
             this.BTN_Vider.Click += new System.EventHandler(this.BTN_Vider_Click);
             // 
-            // dataGridView
-            // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 412);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowTemplate.Height = 28;
-            this.dataGridView.Size = new System.Drawing.Size(919, 192);
-            this.dataGridView.TabIndex = 0;
-            // 
             // BTN_Modifier
             // 
             this.BTN_Modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Modifier.Location = new System.Drawing.Point(245, 364);
+            this.BTN_Modifier.Location = new System.Drawing.Point(245, 324);
             this.BTN_Modifier.Name = "BTN_Modifier";
             this.BTN_Modifier.Size = new System.Drawing.Size(100, 34);
             this.BTN_Modifier.TabIndex = 0;
@@ -292,7 +284,7 @@
             // BTN_Supprimer
             // 
             this.BTN_Supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Supprimer.Location = new System.Drawing.Point(245, 324);
+            this.BTN_Supprimer.Location = new System.Drawing.Point(245, 364);
             this.BTN_Supprimer.Name = "BTN_Supprimer";
             this.BTN_Supprimer.Size = new System.Drawing.Size(100, 34);
             this.BTN_Supprimer.TabIndex = 0;
@@ -303,7 +295,7 @@
             // RB_Tous
             // 
             this.RB_Tous.AutoSize = true;
-            this.RB_Tous.Location = new System.Drawing.Point(745, 44);
+            this.RB_Tous.Location = new System.Drawing.Point(499, 286);
             this.RB_Tous.Name = "RB_Tous";
             this.RB_Tous.Size = new System.Drawing.Size(164, 24);
             this.RB_Tous.TabIndex = 11;
@@ -314,7 +306,7 @@
             // RB_UnEmploye
             // 
             this.RB_UnEmploye.AutoSize = true;
-            this.RB_UnEmploye.Location = new System.Drawing.Point(745, 74);
+            this.RB_UnEmploye.Location = new System.Drawing.Point(499, 316);
             this.RB_UnEmploye.Name = "RB_UnEmploye";
             this.RB_UnEmploye.Size = new System.Drawing.Size(142, 24);
             this.RB_UnEmploye.TabIndex = 11;
@@ -325,7 +317,7 @@
             // RB_Departement
             // 
             this.RB_Departement.AutoSize = true;
-            this.RB_Departement.Location = new System.Drawing.Point(745, 104);
+            this.RB_Departement.Location = new System.Drawing.Point(499, 346);
             this.RB_Departement.Name = "RB_Departement";
             this.RB_Departement.Size = new System.Drawing.Size(128, 24);
             this.RB_Departement.TabIndex = 11;
@@ -336,7 +328,7 @@
             // LB_Recherche
             // 
             this.LB_Recherche.AutoSize = true;
-            this.LB_Recherche.Location = new System.Drawing.Point(741, 9);
+            this.LB_Recherche.Location = new System.Drawing.Point(495, 251);
             this.LB_Recherche.Name = "LB_Recherche";
             this.LB_Recherche.Size = new System.Drawing.Size(87, 20);
             this.LB_Recherche.TabIndex = 9;
@@ -345,10 +337,14 @@
             // DGV_Departements
             // 
             this.DGV_Departements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Departements.Location = new System.Drawing.Point(430, 44);
+            this.DGV_Departements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codedep,
+            this.departement,
+            this.nbr_emp});
+            this.DGV_Departements.Location = new System.Drawing.Point(430, 41);
             this.DGV_Departements.Name = "DGV_Departements";
             this.DGV_Departements.RowTemplate.Height = 28;
-            this.DGV_Departements.Size = new System.Drawing.Size(300, 183);
+            this.DGV_Departements.Size = new System.Drawing.Size(492, 183);
             this.DGV_Departements.TabIndex = 12;
             // 
             // LB_Information
@@ -363,18 +359,36 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(745, 193);
+            this.button1.Location = new System.Drawing.Point(499, 400);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 34);
             this.button1.TabIndex = 0;
             this.button1.Text = "Rechercher";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // codedep
+            // 
+            this.codedep.HeaderText = "Code";
+            this.codedep.Name = "codedep";
+            this.codedep.Width = 70;
+            // 
+            // departement
+            // 
+            this.departement.HeaderText = "Nom dép.";
+            this.departement.Name = "departement";
+            this.departement.Width = 200;
+            // 
+            // nbr_emp
+            // 
+            this.nbr_emp.HeaderText = "Nbr_Emp";
+            this.nbr_emp.Name = "nbr_emp";
+            this.nbr_emp.Width = 80;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 622);
+            this.ClientSize = new System.Drawing.Size(969, 450);
             this.Controls.Add(this.DGV_Departements);
             this.Controls.Add(this.RB_Departement);
             this.Controls.Add(this.RB_UnEmploye);
@@ -385,7 +399,6 @@
             this.Controls.Add(this.BTN_Afficher);
             this.Controls.Add(this.BTN_FIN);
             this.Controls.Add(this.BTN_Debut);
-            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.LB_CodeDep);
             this.Controls.Add(this.LB_Prenom);
             this.Controls.Add(this.LB_Nom);
@@ -410,7 +423,6 @@
             this.Name = "Form_Main";
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.Form_Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -437,7 +449,6 @@
         private System.Windows.Forms.Label LB_CodeDep;
         private System.Windows.Forms.Button BTN_Ajouter;
         private System.Windows.Forms.Button BTN_Vider;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button BTN_Modifier;
         private System.Windows.Forms.Button BTN_Debut;
         private System.Windows.Forms.Button BTN_FIN;
@@ -451,6 +462,9 @@
         private System.Windows.Forms.DataGridView DGV_Departements;
         private System.Windows.Forms.Label LB_Information;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codedep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbr_emp;
     }
 }
 

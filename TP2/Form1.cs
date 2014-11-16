@@ -314,6 +314,14 @@ namespace TP2
         {
             Form_Modification modifier = new Form_Modification(TB_Empno.Text,TB_Nom.Text,TB_Prenom.Text, TB_CodeDep.Text, TB_Echelon.Text, TB_Salaire.Text, TB_Adresse.Text);
             modifier.ShowDialog();
+            if (modifier.DialogResult == DialogResult.OK) //Enregistrer
+            { 
+                
+            }
+            else //annuler la modifcation
+            {
+                modifier.Close();
+            }
         }
 
         private void RB_UnEmploye_CheckedChanged(object sender, EventArgs e)

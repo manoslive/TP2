@@ -12,13 +12,13 @@ namespace TP2
 {
     public partial class Form_Modification : Form
     {
-        string empno_;
-        string nom_;
-        string prenom_;
-        string codeDep_;
-        string echelon_; 
-        string salaire_; 
-        string adresse_;
+        public string empno_;
+        public string nom_;
+        public string prenom_;
+        public string codeDep_;
+        public string echelon_;
+        public string salaire_;
+        public string adresse_;
         public Form_Modification(string empno, string nom, string prenom, string codeDep, 
                                     string echelon, string salaire, string adresse)
         {
@@ -41,6 +41,17 @@ namespace TP2
             TB_Echelon.Text = echelon_;
             TB_Salaire.Text = salaire_;
             TB_Adresse.Text = adresse_;
+        }
+
+        private void BTN_Enregistrer_Click(object sender, EventArgs e)
+        {
+            empno_   = TB_Empno.Text;
+            nom_     = TB_Nom.Text;
+            prenom_  = TB_Prenom.Text;
+            codeDep_ = TB_CodeDep.Text;
+            echelon_ = TB_Echelon.Text;
+            salaire_ = TB_Salaire.Text;
+            adresse_ = TB_Adresse.Text;
         }
     }
 }

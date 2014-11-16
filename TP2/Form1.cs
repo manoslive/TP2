@@ -285,20 +285,24 @@ namespace TP2
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
         {
-            string sqlDelete = "delete from employes where empno=" + TB_Empno.Text;
-            OracleCommand oraCom = new OracleCommand(sqlDelete, oracon);
-            try
+            if (MessageBox.Show("Êtes-vous certain de vouloir supprimer cet employé ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                oraCom.ExecuteNonQuery();
-                oraCom.CommandType = CommandType.Text;
-                Vider();
-                LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                string sqlDelete = "delete from employes where empno=" + TB_Empno.Text;
+                OracleCommand oraCom = new OracleCommand(sqlDelete, oracon);
+                try
+                {
+                    oraCom.ExecuteNonQuery();
+                    oraCom.CommandType = CommandType.Text;
+                    Vider();
+                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                }
+                catch(OracleException ex) 
+                { 
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                TB_Empno.Clear();
             }
-            catch(OracleException ex) 
-            { 
-                MessageBox.Show(ex.Message.ToString());
-            }
-            TB_Empno.Clear();
+
         }
 
         private void BTN_Modifier_Click(object sender, EventArgs e)

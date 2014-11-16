@@ -38,9 +38,9 @@
             // 
             // BTN_Connection
             // 
-            this.BTN_Connection.Location = new System.Drawing.Point(225, 177);
+            this.BTN_Connection.Location = new System.Drawing.Point(167, 177);
             this.BTN_Connection.Name = "BTN_Connection";
-            this.BTN_Connection.Size = new System.Drawing.Size(101, 33);
+            this.BTN_Connection.Size = new System.Drawing.Size(159, 33);
             this.BTN_Connection.TabIndex = 0;
             this.BTN_Connection.Text = "Connection";
             this.BTN_Connection.UseVisualStyleBackColor = true;

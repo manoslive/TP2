@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TB_Empno = new System.Windows.Forms.TextBox();
             this.TB_Nom = new System.Windows.Forms.TextBox();
             this.TB_Prenom = new System.Windows.Forms.TextBox();
@@ -57,11 +58,15 @@
             this.RB_Departement = new System.Windows.Forms.RadioButton();
             this.LB_Recherche = new System.Windows.Forms.Label();
             this.DGV_Departements = new System.Windows.Forms.DataGridView();
-            this.LB_Information = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.codedep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nbr_emp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LB_Information = new System.Windows.Forms.Label();
+            this.BTN_Recherche = new System.Windows.Forms.Button();
+            this.LB_TextRecherche = new System.Windows.Forms.Label();
+            this.TB_NomRecherche = new System.Windows.Forms.TextBox();
+            this.CB_Dep = new System.Windows.Forms.ComboBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +76,7 @@
             this.TB_Empno.Name = "TB_Empno";
             this.TB_Empno.Size = new System.Drawing.Size(238, 26);
             this.TB_Empno.TabIndex = 0;
+            this.toolTip.SetToolTip(this.TB_Empno, "Entrez un numero non existant !");
             this.TB_Empno.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Nom
@@ -95,6 +101,7 @@
             this.TB_CodeDep.Name = "TB_CodeDep";
             this.TB_CodeDep.Size = new System.Drawing.Size(238, 26);
             this.TB_CodeDep.TabIndex = 3;
+            this.toolTip.SetToolTip(this.TB_CodeDep, "Entrez un code dep existant !");
             this.TB_CodeDep.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Echelon
@@ -103,6 +110,7 @@
             this.TB_Echelon.Name = "TB_Echelon";
             this.TB_Echelon.Size = new System.Drawing.Size(238, 26);
             this.TB_Echelon.TabIndex = 4;
+            this.toolTip.SetToolTip(this.TB_Echelon, "Entrez un nombre positif !");
             this.TB_Echelon.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Salaire
@@ -111,6 +119,7 @@
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(238, 26);
             this.TB_Salaire.TabIndex = 5;
+            this.toolTip.SetToolTip(this.TB_Salaire, "Entre 25000 et 100000 ");
             this.TB_Salaire.TextChanged += new System.EventHandler(this.TextBoxChanged);
             // 
             // TB_Adresse
@@ -302,6 +311,7 @@
             this.RB_Tous.TabStop = true;
             this.RB_Tous.Text = "Tous les employés";
             this.RB_Tous.UseVisualStyleBackColor = true;
+            this.RB_Tous.CheckedChanged += new System.EventHandler(this.RB_Tous_CheckedChanged);
             // 
             // RB_UnEmploye
             // 
@@ -313,6 +323,7 @@
             this.RB_UnEmploye.TabStop = true;
             this.RB_UnEmploye.Text = "Nom d\'employé";
             this.RB_UnEmploye.UseVisualStyleBackColor = true;
+            this.RB_UnEmploye.CheckedChanged += new System.EventHandler(this.RB_UnEmploye_CheckedChanged);
             // 
             // RB_Departement
             // 
@@ -324,6 +335,7 @@
             this.RB_Departement.TabStop = true;
             this.RB_Departement.Text = "Département";
             this.RB_Departement.UseVisualStyleBackColor = true;
+            this.RB_Departement.CheckedChanged += new System.EventHandler(this.RB_Departement_CheckedChanged);
             // 
             // LB_Recherche
             // 
@@ -344,27 +356,8 @@
             this.DGV_Departements.Location = new System.Drawing.Point(430, 41);
             this.DGV_Departements.Name = "DGV_Departements";
             this.DGV_Departements.RowTemplate.Height = 28;
-            this.DGV_Departements.Size = new System.Drawing.Size(492, 183);
+            this.DGV_Departements.Size = new System.Drawing.Size(619, 183);
             this.DGV_Departements.TabIndex = 12;
-            // 
-            // LB_Information
-            // 
-            this.LB_Information.AutoSize = true;
-            this.LB_Information.Location = new System.Drawing.Point(29, 12);
-            this.LB_Information.Name = "LB_Information";
-            this.LB_Information.Size = new System.Drawing.Size(181, 20);
-            this.LB_Information.TabIndex = 9;
-            this.LB_Information.Text = "Information de l\'employé";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(499, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Rechercher";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // codedep
             // 
@@ -384,11 +377,69 @@
             this.nbr_emp.Name = "nbr_emp";
             this.nbr_emp.Width = 80;
             // 
+            // LB_Information
+            // 
+            this.LB_Information.AutoSize = true;
+            this.LB_Information.Location = new System.Drawing.Point(29, 12);
+            this.LB_Information.Name = "LB_Information";
+            this.LB_Information.Size = new System.Drawing.Size(181, 20);
+            this.LB_Information.TabIndex = 9;
+            this.LB_Information.Text = "Information de l\'employé";
+            // 
+            // BTN_Recherche
+            // 
+            this.BTN_Recherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Recherche.Location = new System.Drawing.Point(499, 400);
+            this.BTN_Recherche.Name = "BTN_Recherche";
+            this.BTN_Recherche.Size = new System.Drawing.Size(128, 34);
+            this.BTN_Recherche.TabIndex = 0;
+            this.BTN_Recherche.Text = "Rechercher";
+            this.BTN_Recherche.UseVisualStyleBackColor = true;
+            this.BTN_Recherche.Click += new System.EventHandler(this.BTN_Recherche_Click);
+            // 
+            // LB_TextRecherche
+            // 
+            this.LB_TextRecherche.AutoSize = true;
+            this.LB_TextRecherche.Location = new System.Drawing.Point(714, 251);
+            this.LB_TextRecherche.Name = "LB_TextRecherche";
+            this.LB_TextRecherche.Size = new System.Drawing.Size(49, 20);
+            this.LB_TextRecherche.TabIndex = 13;
+            this.LB_TextRecherche.Text = "TEXT";
+            this.LB_TextRecherche.Visible = false;
+            // 
+            // TB_NomRecherche
+            // 
+            this.TB_NomRecherche.Location = new System.Drawing.Point(718, 288);
+            this.TB_NomRecherche.Name = "TB_NomRecherche";
+            this.TB_NomRecherche.Size = new System.Drawing.Size(157, 26);
+            this.TB_NomRecherche.TabIndex = 14;
+            this.TB_NomRecherche.Visible = false;
+            // 
+            // CB_Dep
+            // 
+            this.CB_Dep.FormattingEnabled = true;
+            this.CB_Dep.Items.AddRange(new object[] {
+            "410 - Administration",
+            "420 - Informatique",
+            "430 - Électrique",
+            "440 - Robotique",
+            "450 - Logistique",
+            ""});
+            this.CB_Dep.Location = new System.Drawing.Point(718, 290);
+            this.CB_Dep.Name = "CB_Dep";
+            this.CB_Dep.Size = new System.Drawing.Size(226, 28);
+            this.CB_Dep.TabIndex = 15;
+            this.CB_Dep.Visible = false;
+            this.CB_Dep.SelectedIndexChanged += new System.EventHandler(this.CB_Dep_SelectedIndexChanged);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 450);
+            this.ClientSize = new System.Drawing.Size(1107, 450);
+            this.Controls.Add(this.CB_Dep);
+            this.Controls.Add(this.TB_NomRecherche);
+            this.Controls.Add(this.LB_TextRecherche);
             this.Controls.Add(this.DGV_Departements);
             this.Controls.Add(this.RB_Departement);
             this.Controls.Add(this.RB_UnEmploye);
@@ -406,7 +457,7 @@
             this.Controls.Add(this.LB_NumEmploye);
             this.Controls.Add(this.LB_Salaire);
             this.Controls.Add(this.LB_Echelon);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BTN_Recherche);
             this.Controls.Add(this.BTN_Supprimer);
             this.Controls.Add(this.BTN_Vider);
             this.Controls.Add(this.BTN_Modifier);
@@ -461,10 +512,14 @@
         private System.Windows.Forms.Label LB_Recherche;
         private System.Windows.Forms.DataGridView DGV_Departements;
         private System.Windows.Forms.Label LB_Information;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BTN_Recherche;
         private System.Windows.Forms.DataGridViewTextBoxColumn codedep;
         private System.Windows.Forms.DataGridViewTextBoxColumn departement;
         private System.Windows.Forms.DataGridViewTextBoxColumn nbr_emp;
+        private System.Windows.Forms.Label LB_TextRecherche;
+        private System.Windows.Forms.TextBox TB_NomRecherche;
+        private System.Windows.Forms.ComboBox CB_Dep;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

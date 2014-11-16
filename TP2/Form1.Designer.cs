@@ -53,15 +53,15 @@
             this.BTN_Afficher = new System.Windows.Forms.Button();
             this.LBL_Departements = new System.Windows.Forms.Label();
             this.BTN_Supprimer = new System.Windows.Forms.Button();
-            this.BTN_Rechercher = new System.Windows.Forms.Button();
             this.RB_Tous = new System.Windows.Forms.RadioButton();
             this.RB_UnEmploye = new System.Windows.Forms.RadioButton();
             this.RB_Departement = new System.Windows.Forms.RadioButton();
             this.LB_Recherche = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_Departements = new System.Windows.Forms.DataGridView();
             this.LB_Information = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).BeginInit();
             this.SuspendLayout();
             // 
             // TB_Empno
@@ -123,7 +123,7 @@
             // BTN_Suivant
             // 
             this.BTN_Suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Suivant.Location = new System.Drawing.Point(33, 324);
+            this.BTN_Suivant.Location = new System.Drawing.Point(139, 324);
             this.BTN_Suivant.Name = "BTN_Suivant";
             this.BTN_Suivant.Size = new System.Drawing.Size(100, 34);
             this.BTN_Suivant.TabIndex = 0;
@@ -134,7 +134,7 @@
             // BTN_Precedent
             // 
             this.BTN_Precedent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Precedent.Location = new System.Drawing.Point(139, 324);
+            this.BTN_Precedent.Location = new System.Drawing.Point(33, 324);
             this.BTN_Precedent.Name = "BTN_Precedent";
             this.BTN_Precedent.Size = new System.Drawing.Size(100, 34);
             this.BTN_Precedent.TabIndex = 0;
@@ -300,16 +300,6 @@
             this.BTN_Supprimer.UseVisualStyleBackColor = true;
             this.BTN_Supprimer.Click += new System.EventHandler(this.BTN_Supprimer_Click);
             // 
-            // BTN_Rechercher
-            // 
-            this.BTN_Rechercher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Rechercher.Location = new System.Drawing.Point(745, 171);
-            this.BTN_Rechercher.Name = "BTN_Rechercher";
-            this.BTN_Rechercher.Size = new System.Drawing.Size(100, 34);
-            this.BTN_Rechercher.TabIndex = 0;
-            this.BTN_Rechercher.Text = "Rechercher";
-            this.BTN_Rechercher.UseVisualStyleBackColor = true;
-            // 
             // RB_Tous
             // 
             this.RB_Tous.AutoSize = true;
@@ -352,14 +342,14 @@
             this.LB_Recherche.TabIndex = 9;
             this.LB_Recherche.Text = "Recherche";
             // 
-            // dataGridView1
+            // DGV_Departements
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(430, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 183);
-            this.dataGridView1.TabIndex = 12;
+            this.DGV_Departements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Departements.Location = new System.Drawing.Point(430, 44);
+            this.DGV_Departements.Name = "DGV_Departements";
+            this.DGV_Departements.RowTemplate.Height = 28;
+            this.DGV_Departements.Size = new System.Drawing.Size(300, 183);
+            this.DGV_Departements.TabIndex = 12;
             // 
             // LB_Information
             // 
@@ -370,12 +360,22 @@
             this.LB_Information.TabIndex = 9;
             this.LB_Information.Text = "Information de l\'employé";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(745, 193);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 34);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Rechercher";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 622);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1001, 622);
+            this.Controls.Add(this.DGV_Departements);
             this.Controls.Add(this.RB_Departement);
             this.Controls.Add(this.RB_UnEmploye);
             this.Controls.Add(this.RB_Tous);
@@ -393,7 +393,7 @@
             this.Controls.Add(this.LB_NumEmploye);
             this.Controls.Add(this.LB_Salaire);
             this.Controls.Add(this.LB_Echelon);
-            this.Controls.Add(this.BTN_Rechercher);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BTN_Supprimer);
             this.Controls.Add(this.BTN_Vider);
             this.Controls.Add(this.BTN_Modifier);
@@ -411,7 +411,7 @@
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,13 +444,13 @@
         private System.Windows.Forms.Button BTN_Afficher;
         private System.Windows.Forms.Label LBL_Departements;
         private System.Windows.Forms.Button BTN_Supprimer;
-        private System.Windows.Forms.Button BTN_Rechercher;
         private System.Windows.Forms.RadioButton RB_Tous;
         private System.Windows.Forms.RadioButton RB_UnEmploye;
         private System.Windows.Forms.RadioButton RB_Departement;
         private System.Windows.Forms.Label LB_Recherche;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_Departements;
         private System.Windows.Forms.Label LB_Information;
+        private System.Windows.Forms.Button button1;
     }
 }
 

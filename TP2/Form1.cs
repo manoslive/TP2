@@ -28,31 +28,9 @@ namespace TP2
 
             TB_Empno.Select();
             AfficherTexte();
-            ListerDepartements();
+            FillDGVDepartement();
             BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = false;
-        }
-
-        private void ListerDepartements()
-        {
-            string sqlDepartements = "select nomdepartement from departements";
-            try
-            {
-                OracleCommand oraCmdProg = new OracleCommand(sqlDepartements, oracon);
-                oraCmdProg.CommandType = CommandType.Text;
-                OracleDataReader objRead = oraCmdProg.ExecuteReader();
-                while (objRead.Read())
-                {
-                    //ListeProgrammes.Items.Add(objRead.GetInt32(0));
-                    ListeDepartements.Items.Add(objRead.GetString(1));
-                }
-                ListeDepartements.SelectedIndex = 0;
-                objRead.Close();
-            }
-            catch(OracleException exsql4)
-            {
-                MessageBox.Show(exsql4.Message.ToString());
-            }
         }
 
         private void AfficherTexte()
@@ -151,7 +129,7 @@ namespace TP2
 
         private void BTN_Afficher_Click(object sender, EventArgs e)
         {
-            AfficherTexte();
+            //AfficherTexte();
 
             //réglages de boutons
             BTN_Debut.Enabled = true;
@@ -179,6 +157,38 @@ namespace TP2
             }
         }
 
+        private void FillDGVDepartement()
+        {
+            DGV_Departements.Rows.Clear();
+            string sql = "select d.codedep, d.nomdepartement " + ", count(e.codedep) " +
+             "from employes e " +
+             "right join departements d on e.codedep = d.codedep " +
+             "group by d.codedep, d.nomdepartement " +
+             "order by d.codedep ";
+
+            try
+            {
+                DGV_Departements.Rows.Clear();
+                OracleCommand orcd = new OracleCommand(sql, oracon);
+                orcd.CommandType = CommandType.Text;
+                OracleDataReader oraRead = orcd.ExecuteReader();
+
+                while (oraRead.Read())
+                {
+                    DGV_Departements.Rows.Add(
+                    oraRead.GetString(0),
+                    oraRead.GetString(1),
+                    oraRead.GetInt32(2)
+                    );
+                }
+                oraRead.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
         private void BTN_Ajouter_Click(object sender, EventArgs e)
         {
             //si les texts entré par l'usager son des lettres, ou des numéros, ou bien les 2..
@@ -193,7 +203,7 @@ namespace TP2
                     OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
                     oraCom.CommandType = CommandType.Text;
                     OracleDataReader OraRead = oraCom.ExecuteReader();
-                    AfficherTexte();
+                    //AfficherTexte();
                 }
                 catch (OracleException exsql1)
                 {

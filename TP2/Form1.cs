@@ -270,7 +270,10 @@ namespace TP2
                     AfficherTexte(); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
                     
                     //this.BindingContext[monDataSet, "TableEmployes"].Position = Convert.ToInt32(TB_Empno.Text); //j'essaie de faire afficher l'employé qui vien de se faire ajouter
+                    
+                    //ajuster les informations du dgv et l'info
                     LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                    FillDGVDepartement();
                 }
                 catch (OracleException exsql1)
                 {
@@ -285,7 +288,7 @@ namespace TP2
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Êtes-vous certain de vouloir supprimer cet employé ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Êtes-vous certain que vous voulez supprimer cet employé ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 string sqlDelete = "delete from employes where empno=" + TB_Empno.Text;
                 OracleCommand oraCom = new OracleCommand(sqlDelete, oracon);
@@ -294,7 +297,9 @@ namespace TP2
                     oraCom.ExecuteNonQuery();
                     oraCom.CommandType = CommandType.Text;
                     Vider();
+                    //ajuster le dgv et l'information
                     LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                    FillDGVDepartement();
                 }
                 catch(OracleException ex) 
                 { 
@@ -307,7 +312,8 @@ namespace TP2
 
         private void BTN_Modifier_Click(object sender, EventArgs e)
         {
-
+            Form_Modification modifier = new Form_Modification(TB_Empno.Text,TB_Nom.Text,TB_Prenom.Text, TB_CodeDep.Text, TB_Echelon.Text, TB_Salaire.Text, TB_Adresse.Text);
+            modifier.ShowDialog();
         }
 
         private void RB_UnEmploye_CheckedChanged(object sender, EventArgs e)

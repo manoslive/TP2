@@ -58,6 +58,12 @@
     <Compile Include="Form_Connection.Designer.cs">
       <DependentUpon>Form_Connection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Modification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Modification.Designer.cs">
+      <DependentUpon>Form_Modification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Connection.resx">
       <DependentUpon>Form_Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Modification.resx">
+      <DependentUpon>Form_Modification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

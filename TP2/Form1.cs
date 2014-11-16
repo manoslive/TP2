@@ -57,16 +57,8 @@ namespace TP2
 
         private void Vider()
         {
-            //Je ne suis pas certain si c'est la bonne facon de faire ceci...
-            TB_Empno.DataBindings.Clear();
-            TB_Nom.DataBindings.Clear();
-            TB_Prenom.DataBindings.Clear();
-            TB_CodeDep.DataBindings.Clear();
-            TB_Echelon.DataBindings.Clear();
-            TB_Salaire.DataBindings.Clear();
-            TB_Adresse.DataBindings.Clear();
+            ReinitialiserTB();
 
-            //Ceci efface les données dans le binding
             TB_Empno.Text = "";
             TB_Nom.Text = "";
             TB_Prenom.Text = "";
@@ -126,6 +118,7 @@ namespace TP2
         private void BTN_Afficher_Click(object sender, EventArgs e)
         {
             AfficherTexte();
+            LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
 
             //réglages de boutons
             BTN_Debut.Enabled = true;
@@ -272,7 +265,12 @@ namespace TP2
                     BTN_Afficher.Enabled = false;
                     BTN_Ajouter.Enabled = false;
                     BTN_Supprimer.Enabled = true;
-                    //AfficherTexte();
+
+                    //Affichage des informations
+                    AfficherTexte(); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+                    
+                    //this.BindingContext[monDataSet, "TableEmployes"].Position = Convert.ToInt32(TB_Empno.Text); //j'essaie de faire afficher l'employé qui vien de se faire ajouter
+                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
                 }
                 catch (OracleException exsql1)
                 {
@@ -291,8 +289,10 @@ namespace TP2
             OracleCommand oraCom = new OracleCommand(sqlDelete, oracon);
             try
             {
-            oraCom.ExecuteNonQuery();
-            oraCom.CommandType = CommandType.Text;
+                oraCom.ExecuteNonQuery();
+                oraCom.CommandType = CommandType.Text;
+                Vider();
+                LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
             }
             catch(OracleException ex) 
             { 

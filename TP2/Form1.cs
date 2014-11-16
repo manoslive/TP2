@@ -24,15 +24,35 @@ namespace TP2
         private void Form_Main_Load(object sender, EventArgs e)
         {
             Form_Connection connection = new Form_Connection(oracon, maBelleConnection); // Passer en parametre le oracle connection
-            if(connection.ShowDialog() == DialogResult.Cancel)
-            {
-                //Application.Exit();
-            }
+            connection.ShowDialog();
+
             TB_Empno.Select();
             AfficherTexte();
-
+            ListerDepartements();
             BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = false;
+        }
+
+        private void ListerDepartements()
+        {
+            string sqlDepartements = "select nomdepartement from departements";
+            try
+            {
+                OracleCommand oraCmdProg = new OracleCommand(sqlDepartements, oracon);
+                oraCmdProg.CommandType = CommandType.Text;
+                OracleDataReader objRead = oraCmdProg.ExecuteReader();
+                while (objRead.Read())
+                {
+                    //ListeProgrammes.Items.Add(objRead.GetInt32(0));
+                    ListeDepartements.Items.Add(objRead.GetString(1));
+                }
+                ListeDepartements.SelectedIndex = 0;
+                objRead.Close();
+            }
+            catch(OracleException exsql4)
+            {
+                MessageBox.Show(exsql4.Message.ToString());
+            }
         }
 
         private void AfficherTexte()
@@ -53,9 +73,9 @@ namespace TP2
                 //insertion de chaque rangé dans le DataGridView
                 InsertionDataGridView();
             }
-            catch (Exception bagel)
+            catch (OracleException exsql2)
             {
-                MessageBox.Show(bagel.Message.ToString());
+                MessageBox.Show(exsql2.Message.ToString());
             }
 
         }
@@ -164,7 +184,7 @@ namespace TP2
             //si les texts entré par l'usager son des lettres, ou des numéros, ou bien les 2..
             if(TB_Adresse.Text.All(Char.IsLetterOrDigit) && TB_Nom.Text.All(Char.IsLetter)&&
                 TB_Prenom.Text.All(Char.IsLetter) && TB_Empno.Text.All(Char.IsDigit) && TB_Salaire.Text.All(Char.IsDigit)&&
-                   TB_Echelon.Text.All(Char.IsDigit) && TB_CodeDep.Text.All(Char.IsLetterOrDigit))
+                   TB_Echelon.Text.All(Char.IsDigit) && TB_CodeDep.Text.All(Char.IsDigit))
             {
                 string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
 
@@ -175,7 +195,7 @@ namespace TP2
                     OracleDataReader OraRead = oraCom.ExecuteReader();
                     AfficherTexte();
                 }
-                catch (Exception exsql1)
+                catch (OracleException exsql1)
                 {
                     MessageBox.Show(exsql1.Message.ToString());
                 }
@@ -184,6 +204,27 @@ namespace TP2
             {
                 MessageBox.Show("Soyez certain que les champs sont remplis avec les bons types de caractères ");
             }
+        }
+
+        private void BTN_Supprimer_Click(object sender, EventArgs e)
+        {
+            string sqlDelete = "delete from employes where empno=" + TB_Empno.Text;
+            OracleCommand oraCom = new OracleCommand(sqlDelete, oracon);
+            try
+            {
+            oraCom.ExecuteNonQuery();
+            oraCom.CommandType = CommandType.Text;
+            }
+            catch(OracleException ex) 
+            { 
+                MessageBox.Show(ex.Message.ToString());
+            }
+            TB_Empno.Clear();
+        }
+
+        private void BTN_Modifier_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

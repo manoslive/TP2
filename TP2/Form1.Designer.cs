@@ -391,6 +391,7 @@
             // DGV_Departements
             // 
             this.DGV_Departements.AllowUserToAddRows = false;
+            this.DGV_Departements.AllowUserToDeleteRows = false;
             this.DGV_Departements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Departements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codedep,
@@ -399,6 +400,7 @@
             this.DGV_Departements.Location = new System.Drawing.Point(287, 27);
             this.DGV_Departements.Margin = new System.Windows.Forms.Padding(2);
             this.DGV_Departements.Name = "DGV_Departements";
+            this.DGV_Departements.ReadOnly = true;
             this.DGV_Departements.RowTemplate.Height = 28;
             this.DGV_Departements.Size = new System.Drawing.Size(413, 119);
             this.DGV_Departements.TabIndex = 12;

@@ -214,7 +214,8 @@ namespace TP2
                 OracleCommand orcd = new OracleCommand(sql, oracon);
                 orcd.CommandType = CommandType.Text;
                 OracleDataReader oraRead = orcd.ExecuteReader();
-
+                DataGridViewRow rangee1 = this.DGV_Departements.RowTemplate;
+                rangee1.Height = 19;
                 while (oraRead.Read())
                 {
                     DGV_Departements.Rows.Add(
@@ -224,6 +225,7 @@ namespace TP2
                     );
                 }
                 oraRead.Close();
+ 
             }
             catch (Exception ex)
             {

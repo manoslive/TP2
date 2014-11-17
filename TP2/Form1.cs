@@ -435,9 +435,9 @@ namespace TP2
             BTN_FIN.Enabled = true;
             BTN_Suivant.Enabled = true;
             BTN_Precedent.Enabled = true;
-            BTN_Modifier.Enabled = true;
-            BTN_Ajouter.Enabled = true;
-            BTN_Supprimer.Enabled = true;
+            BTN_Modifier.Enabled = false;
+            BTN_Ajouter.Enabled = false;
+            BTN_Supprimer.Enabled = false;
             BTN_Afficher.Enabled = false;
             BTN_Annuler.Enabled = true;
         }

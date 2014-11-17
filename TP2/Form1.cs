@@ -307,46 +307,51 @@ namespace TP2
                                 "\n 450 - Logistique");
                 TB_CodeDep.Text = "";
             }
+            else if (Convert.ToInt32(TB_Salaire.Text) < 25000 || Convert.ToInt32(TB_Salaire.Text) > 100000)
+            {
+                MessageBox.Show("Erreur: Veuillez entrer un salaire entre 25000 et 100000!");
+                TB_Salaire.Text = "";
+            }
             else
             {
-            string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
+                string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
 
-            try
-            {
-                OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
-                oraCom.CommandType = CommandType.Text;
-                OracleDataReader OraRead = oraCom.ExecuteReader();
-                //réglages de boutons
-                BTN_Debut.Enabled = true;
-                BTN_FIN.Enabled = true;
-                BTN_Suivant.Enabled = true;
-                BTN_Precedent.Enabled = true;
-                BTN_Modifier.Enabled = true;
-                BTN_Afficher.Enabled = false;
-                BTN_Ajouter.Enabled = false;
-                BTN_Supprimer.Enabled = true;
+                try
+                {
+                    OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
+                    oraCom.CommandType = CommandType.Text;
+                    OracleDataReader OraRead = oraCom.ExecuteReader();
+                    //réglages de boutons
+                    BTN_Debut.Enabled = true;
+                    BTN_FIN.Enabled = true;
+                    BTN_Suivant.Enabled = true;
+                    BTN_Precedent.Enabled = true;
+                    BTN_Modifier.Enabled = true;
+                    BTN_Afficher.Enabled = false;
+                    BTN_Ajouter.Enabled = false;
+                    BTN_Supprimer.Enabled = true;
 
-                //réglages des txtbox
-                TB_Empno.Enabled = false;
-                TB_Nom.Enabled = false;
-                TB_Prenom.Enabled = false;
-                TB_Salaire.Enabled = false;
-                TB_Echelon.Enabled = false;
-                TB_CodeDep.Enabled = false;
-                TB_Adresse.Enabled = false;
+                    //réglages des txtbox
+                    TB_Empno.Enabled = false;
+                    TB_Nom.Enabled = false;
+                    TB_Prenom.Enabled = false;
+                    TB_Salaire.Enabled = false;
+                    TB_Echelon.Enabled = false;
+                    TB_CodeDep.Enabled = false;
+                    TB_Adresse.Enabled = false;
 
-                //Affichage des informations
-                AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
-                                        
-                //ajuster les informations du dgv et l'info
-                LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
-                FillDGVDepartement();
+                    //Affichage des informations
+                    AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+
+                    //ajuster les informations du dgv et l'info
+                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                    FillDGVDepartement();
+                }
+                catch (OracleException exsql1)
+                {
+                    MessageBox.Show(exsql1.Message.ToString());
+                }
             }
-            catch (OracleException exsql1)
-            {
-                MessageBox.Show(exsql1.Message.ToString());
-            }            
-        }
         }
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)

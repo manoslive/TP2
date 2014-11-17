@@ -494,7 +494,7 @@ namespace TP2
             BTN_Modifier.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
-            BTN_Afficher.Enabled = true;  
+            BTN_Afficher.Enabled = false;  
         }
 
         private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)

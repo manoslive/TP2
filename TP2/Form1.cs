@@ -500,5 +500,14 @@ namespace TP2
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
             }
         }
+
+        private void TB_Salaire_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touche appuyé est différent qu'une touche lettre ou le backspace ou point..
+            if (e.KeyChar != (char)8 && !char.IsLetter(e.KeyChar) && e.KeyChar == Char.Parse(","))
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
+        }
     }
 }

@@ -144,7 +144,7 @@
             this.TB_Salaire.TabIndex = 5;
             this.toolTip.SetToolTip(this.TB_Salaire, "Entre 25000 et 100000 ");
             this.TB_Salaire.TextChanged += new System.EventHandler(this.TextBoxChanged);
-            this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
+            this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Salaire_KeyPress);
             // 
             // TB_Adresse
             // 

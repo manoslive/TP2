@@ -67,6 +67,7 @@
             this.TB_NomRecherche = new System.Windows.Forms.TextBox();
             this.CB_Dep = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.BTN_Annuler = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -509,13 +510,27 @@
             this.CB_Dep.Visible = false;
             this.CB_Dep.SelectedIndexChanged += new System.EventHandler(this.CB_Dep_SelectedIndexChanged);
             // 
+            // BTN_Annuler
+            // 
+            this.BTN_Annuler.Enabled = false;
+            this.BTN_Annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Annuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Annuler.Location = new System.Drawing.Point(422, 260);
+            this.BTN_Annuler.Margin = new System.Windows.Forms.Padding(2);
+            this.BTN_Annuler.Name = "BTN_Annuler";
+            this.BTN_Annuler.Size = new System.Drawing.Size(85, 22);
+            this.BTN_Annuler.TabIndex = 0;
+            this.BTN_Annuler.Text = "Annuler";
+            this.BTN_Annuler.UseVisualStyleBackColor = true;
+            this.BTN_Annuler.Click += new System.EventHandler(this.BTN_Annuler_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::TP2.Properties.Resources._9720142;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(636, 188);
+            this.pictureBox1.Location = new System.Drawing.Point(642, 211);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(96, 93);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
@@ -523,8 +538,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TP2.Properties.Resources.sebastien_Patoche;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(738, 292);
+            this.ClientSize = new System.Drawing.Size(738, 425);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CB_Dep);
             this.Controls.Add(this.TB_NomRecherche);
@@ -546,6 +562,7 @@
             this.Controls.Add(this.LB_NumEmploye);
             this.Controls.Add(this.LB_Salaire);
             this.Controls.Add(this.LB_Echelon);
+            this.Controls.Add(this.BTN_Annuler);
             this.Controls.Add(this.BTN_Recherche);
             this.Controls.Add(this.BTN_Supprimer);
             this.Controls.Add(this.BTN_Vider);
@@ -612,6 +629,7 @@
         private System.Windows.Forms.ComboBox CB_Dep;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button BTN_Annuler;
     }
 }
 

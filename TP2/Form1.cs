@@ -315,8 +315,23 @@ namespace TP2
             Form_Modification modifier = new Form_Modification(TB_Empno.Text,TB_Nom.Text,TB_Prenom.Text, TB_CodeDep.Text, TB_Echelon.Text, TB_Salaire.Text, TB_Adresse.Text);
             modifier.ShowDialog();
             if (modifier.DialogResult == DialogResult.OK) //Enregistrer
-            { 
-                
+            {
+                try
+                {
+                    string sqlUpdate = "Update Employes Set Empno=" + modifier.empno_ + ", nom='" + modifier.nom_ + "', prenom='" + modifier.prenom_ + "', salaire=" + modifier.salaire_ + ", echelon =" + modifier.echelon_ + ", adresse='" + modifier.adresse_ + "', codedep= " + modifier.codeDep_ + " where empno =" + TB_Empno.Text;
+
+                    ReinitialiserTB();
+                    OracleCommand oraCom = new OracleCommand(sqlUpdate, oracon);
+                    oraCom.CommandType = CommandType.Text;
+                    OracleDataReader OraRead = oraCom.ExecuteReader();
+
+                    //Affichage des informations
+                    AfficherTexte(); 
+                }
+                catch (OracleException exsql1)
+                {
+                    MessageBox.Show(exsql1.Message.ToString());
+                }
             }
             else //annuler la modifcation
             {

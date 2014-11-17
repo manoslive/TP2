@@ -17,6 +17,9 @@ namespace TP2
         private DataSet monDataSet = new DataSet();
         MaConnection maBelleConnection = new MaConnection();
         private string commandeRechercher = "";
+
+        private string TableEmployes = "TableEmployes";
+        private string Employes = "Employes";
         public Form_Main()
         {
             InitializeComponent();
@@ -89,10 +92,24 @@ namespace TP2
             TB_Adresse.DataBindings.Add("Text", monDataSet, "TableEmployes.Adresse");
             TB_Empno.BindingContext[monDataSet, "TableEmployes"].Position = position;
         }
+        private void Lier(int position, string Table)
+        {
+            TB_Empno.DataBindings.Add("Text", monDataSet, Table + ".Empno");
+            TB_Nom.DataBindings.Add("Text", monDataSet, Table + ".Nom");
+            TB_Prenom.DataBindings.Add("Text", monDataSet, Table + ".Prenom");
+            TB_CodeDep.DataBindings.Add("Text", monDataSet, Table + ".CodeDep");
+            TB_Echelon.DataBindings.Add("Text", monDataSet, Table + ".Echelon");
+            TB_Salaire.DataBindings.Add("Text", monDataSet, Table + ".Salaire");
+            TB_Adresse.DataBindings.Add("Text", monDataSet, Table + ".Adresse");
+            TB_Empno.BindingContext[monDataSet, Table].Position = position;
+        }
 
         private void BTN_Suivant_Click(object sender, EventArgs e)
         {
-            this.BindingContext[monDataSet, "TableEmployes"].Position += 1;
+            if(RB_Departement.Checked == true || RB_Tous.Checked == true || RB_UnEmploye.Checked == true)
+                this.BindingContext[monDataSet, Employes].Position += 1;
+            else
+                this.BindingContext[monDataSet, TableEmployes].Position += 1;
         }
 
 
@@ -106,21 +123,34 @@ namespace TP2
             TB_Echelon.Enabled = true;
             TB_CodeDep.Enabled = true;
             TB_Adresse.Enabled = true;
+
+            RB_UnEmploye.Checked = false;
+            RB_Departement.Checked = false;
+            RB_Tous.Checked = false;
         }
 
         private void BTN_Precedent_Click(object sender, EventArgs e)
         {
-            this.BindingContext[monDataSet, "TableEmployes"].Position -= 1;
+            if (RB_Departement.Checked == true || RB_Tous.Checked == true || RB_UnEmploye.Checked == true)
+                this.BindingContext[monDataSet,Employes ].Position -= 1;
+            else
+                this.BindingContext[monDataSet, TableEmployes].Position -= 1;
         }
 
         private void BTN_FIN_Click(object sender, EventArgs e)
         {
-            this.BindingContext[monDataSet, "TableEmployes"].Position = this.BindingContext[monDataSet, "TableEmployes"].Count;
+            if (RB_Departement.Checked == true || RB_Tous.Checked == true || RB_UnEmploye.Checked == true)
+                this.BindingContext[monDataSet, Employes].Position = this.BindingContext[monDataSet, Employes].Count;
+            else
+                this.BindingContext[monDataSet, TableEmployes].Position = this.BindingContext[monDataSet, TableEmployes].Count;
         }
 
         private void BTN_Debut_Click(object sender, EventArgs e)
         {
-            this.BindingContext[monDataSet, "TableEmployes"].Position = 0;
+            if (RB_Departement.Checked == true || RB_Tous.Checked == true || RB_UnEmploye.Checked == true)
+                this.BindingContext[monDataSet, Employes].Position = 0;
+            else
+                this.BindingContext[monDataSet, TableEmployes].Position = 0;
         }
 
         private void BTN_Afficher_Click(object sender, EventArgs e)
@@ -146,6 +176,10 @@ namespace TP2
             TB_Echelon.Enabled = false;
             TB_CodeDep.Enabled = false;
             TB_Adresse.Enabled = false;
+
+            RB_UnEmploye.Checked = false;
+            RB_Departement.Checked = false;
+            RB_Tous.Checked = false;
         }
 
         private void TextBoxChanged(object sender, EventArgs e)
@@ -215,7 +249,7 @@ namespace TP2
             if (RB_Tous.Checked)
             {
                 BTN_Recherche.Enabled = true;
-                commandeRechercher = "select * from employes";
+                commandeRechercher = "select * from employes order by empno";
             }
             else if (RB_UnEmploye.Checked)
             {
@@ -228,7 +262,7 @@ namespace TP2
             else if (RB_Departement.Checked)
             {
                 BTN_Recherche.Enabled = true;
-                commandeRechercher = "select * from employes e inner join departements d on e.codedep = d.codedep where NomDepartement like '" + CB_Dep.Text + "'";
+                commandeRechercher = "select * from employes e inner join departements d on e.codedep = d.codedep where d.NomDepartement like '" + CB_Dep.Text + "'";
             }
         }
 
@@ -245,7 +279,7 @@ namespace TP2
                 if (this.BindingContext[monDataSet, "Employes"].Count > 0)
                 {
                     LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "Employes"].Count.ToString() + " résultats)";
-                    Lier(0);
+                    Lier(0, "Employes");
                 }
                 else
                 {

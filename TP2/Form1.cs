@@ -28,13 +28,13 @@ namespace TP2
             connection.ShowDialog();
             FillDGVDepartement();
             TB_Empno.Select();
-            AfficherTexte();
+            AfficherTexte(0);
             LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
             BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = false;
         }
 
-        private void AfficherTexte()
+        private void AfficherTexte(int position)
         {
             string sql = "select empno, nom, prenom, codedep, echelon, salaire, adresse from employes order by empno";
 
@@ -47,7 +47,7 @@ namespace TP2
                 }
                 adapter2.Fill(monDataSet, "TableEmployes");
                 adapter2.Dispose();
-                Lier();
+                Lier(position);
             }
             catch (OracleException exsql2)
             {
@@ -78,7 +78,7 @@ namespace TP2
             BTN_Afficher.Enabled = true;   
         }
 
-        private void Lier()
+        private void Lier(int position)
         {
             TB_Empno.DataBindings.Add("Text", monDataSet, "TableEmployes.Empno");
             TB_Nom.DataBindings.Add("Text", monDataSet, "TableEmployes.Nom");
@@ -87,6 +87,7 @@ namespace TP2
             TB_Echelon.DataBindings.Add("Text", monDataSet, "TableEmployes.Echelon");
             TB_Salaire.DataBindings.Add("Text", monDataSet, "TableEmployes.Salaire");
             TB_Adresse.DataBindings.Add("Text", monDataSet, "TableEmployes.Adresse");
+            TB_Empno.BindingContext[monDataSet, "TableEmployes"].Position = position;
         }
 
         private void BTN_Suivant_Click(object sender, EventArgs e)
@@ -117,7 +118,7 @@ namespace TP2
 
         private void BTN_Afficher_Click(object sender, EventArgs e)
         {
-            AfficherTexte();
+            AfficherTexte(0);
             LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
 
             //réglages de boutons
@@ -228,7 +229,7 @@ namespace TP2
                 if (this.BindingContext[monDataSet, "Employes"].Count > 0)
                 {
                     LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "Employes"].Count.ToString() + " résultats)";
-                    Lier();
+                    Lier(0);
                 }
                 else
                 {
@@ -267,7 +268,7 @@ namespace TP2
                     BTN_Supprimer.Enabled = true;
 
                     //Affichage des informations
-                    AfficherTexte(); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+                    AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
                     
                     //this.BindingContext[monDataSet, "TableEmployes"].Position = Convert.ToInt32(TB_Empno.Text); //j'essaie de faire afficher l'employé qui vien de se faire ajouter
                     
@@ -326,7 +327,7 @@ namespace TP2
                     OracleDataReader OraRead = oraCom.ExecuteReader();
 
                     //Affichage des informations
-                    AfficherTexte(); 
+                    AfficherTexte(this.BindingContext[monDataSet, "TableEmployes"].Position); 
                 }
                 catch (OracleException exsql1)
                 {

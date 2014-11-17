@@ -73,9 +73,40 @@ namespace TP2
             }
         }
 
-        private void TB_Salaire_Leave(object sender, EventArgs e)
+        private void TB_Salaire_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (TB_Salaire.Text.Contains('.'))
+            {
+                string s = TB_Salaire.Text.Substring(TB_Salaire.Text.LastIndexOf('.'), TB_Salaire.Text.Length - TB_Salaire.Text.LastIndexOf('.'));
+                if (s.Length >= 3)
+                {
+                    if (e.KeyChar == 46 || char.IsNumber(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (e.KeyChar == 46)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                //vérifie si la touche appuyé est différent qu'une touche num ou le backspace ou point..
+                if (e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar) && e.KeyChar != 46)
+                {
+                    e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+                }
+            }
+        }
 
+        private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric, lettre ou le backspace ou espace..
+            if (e.KeyChar != 8 && !char.IsLetter(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
         }
     }
 }

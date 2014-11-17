@@ -123,7 +123,7 @@
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 20;
-            this.TB_Adresse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
+            this.TB_Adresse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Adresse_KeyPress);
             // 
             // TB_CodeDep
             // 
@@ -141,8 +141,7 @@
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 19;
-            this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
-            this.TB_Salaire.Leave += new System.EventHandler(this.TB_Salaire_Leave);
+            this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Salaire_KeyPress);
             // 
             // TB_Prenom
             // 

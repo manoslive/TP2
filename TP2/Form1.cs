@@ -297,43 +297,56 @@ namespace TP2
 
         private void BTN_Ajouter_Click(object sender, EventArgs e)
         {
-            string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
-
-            try
+            if (TB_CodeDep.Text != "410" && TB_CodeDep.Text != "420" && TB_CodeDep.Text != "430" && TB_CodeDep.Text != "440" && TB_CodeDep.Text != "450")
             {
-                OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
-                oraCom.CommandType = CommandType.Text;
-                OracleDataReader OraRead = oraCom.ExecuteReader();
-                //réglages de boutons
-                BTN_Debut.Enabled = true;
-                BTN_FIN.Enabled = true;
-                BTN_Suivant.Enabled = true;
-                BTN_Precedent.Enabled = true;
-                BTN_Modifier.Enabled = true;
-                BTN_Afficher.Enabled = false;
-                BTN_Ajouter.Enabled = false;
-                BTN_Supprimer.Enabled = true;
-
-                //réglages des txtbox
-                TB_Empno.Enabled = false;
-                TB_Nom.Enabled = false;
-                TB_Prenom.Enabled = false;
-                TB_Salaire.Enabled = false;
-                TB_Echelon.Enabled = false;
-                TB_CodeDep.Enabled = false;
-                TB_Adresse.Enabled = false;
-
-                //Affichage des informations
-                AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
-                                        
-                //ajuster les informations du dgv et l'info
-                LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
-                FillDGVDepartement();
+                MessageBox.Show("Erreur: Code de departement invalide." +
+                                "\n 410 - Administration" +
+                                "\n 420 - Informatique" +
+                                "\n 430 - Électrique" +
+                                "\n 440 - Robotique" +
+                                "\n 450 - Logistique");
+                TB_CodeDep.Text = "";
             }
-            catch (OracleException exsql1)
+            else
             {
-                MessageBox.Show(exsql1.Message.ToString());
-            }            
+                string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
+
+                try
+                {
+                    OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
+                    oraCom.CommandType = CommandType.Text;
+                    OracleDataReader OraRead = oraCom.ExecuteReader();
+                    //réglages de boutons
+                    BTN_Debut.Enabled = true;
+                    BTN_FIN.Enabled = true;
+                    BTN_Suivant.Enabled = true;
+                    BTN_Precedent.Enabled = true;
+                    BTN_Modifier.Enabled = true;
+                    BTN_Afficher.Enabled = false;
+                    BTN_Ajouter.Enabled = false;
+                    BTN_Supprimer.Enabled = true;
+
+                    //réglages des txtbox
+                    TB_Empno.Enabled = false;
+                    TB_Nom.Enabled = false;
+                    TB_Prenom.Enabled = false;
+                    TB_Salaire.Enabled = false;
+                    TB_Echelon.Enabled = false;
+                    TB_CodeDep.Enabled = false;
+                    TB_Adresse.Enabled = false;
+
+                    //Affichage des informations
+                    AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+
+                    //ajuster les informations du dgv et l'info
+                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                    FillDGVDepartement();
+                }
+                catch (OracleException exsql1)
+                {
+                    MessageBox.Show(exsql1.Message.ToString());
+                }
+            }
         }
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
@@ -451,7 +464,7 @@ namespace TP2
 
         private void TextBox_Num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //vérifie si la touhe appuyé est différent qu'une touche numéric ou le backspace..
+            //vérifie si la touche appuyé est différent qu'une touche numéric ou le backspace..
             if (e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
@@ -460,7 +473,7 @@ namespace TP2
 
         private void TextBox_Lettre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //vérifie si la touhe appuyé est différent qu'une touche numéric ou le backspace..
+            //vérifie si la touche appuyé est différent qu'une touche numéric ou le backspace..
             if (e.KeyChar != (char)8 && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
@@ -476,7 +489,7 @@ namespace TP2
             BTN_Modifier.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
-            BTN_Afficher.Enabled = true;  
+            BTN_Afficher.Enabled = true;
         }
     }
 }

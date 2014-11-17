@@ -79,7 +79,6 @@
             this.TB_Empno.Size = new System.Drawing.Size(160, 20);
             this.TB_Empno.TabIndex = 0;
             this.toolTip.SetToolTip(this.TB_Empno, "Entrez un numero non existant !");
-            this.TB_Empno.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_Empno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Nom
@@ -90,7 +89,6 @@
             this.TB_Nom.Name = "TB_Nom";
             this.TB_Nom.Size = new System.Drawing.Size(160, 20);
             this.TB_Nom.TabIndex = 1;
-            this.TB_Nom.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_Nom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
             // 
             // TB_Prenom
@@ -101,7 +99,6 @@
             this.TB_Prenom.Name = "TB_Prenom";
             this.TB_Prenom.Size = new System.Drawing.Size(160, 20);
             this.TB_Prenom.TabIndex = 2;
-            this.TB_Prenom.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_Prenom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
             // 
             // TB_CodeDep
@@ -113,7 +110,6 @@
             this.TB_CodeDep.Size = new System.Drawing.Size(160, 20);
             this.TB_CodeDep.TabIndex = 3;
             this.toolTip.SetToolTip(this.TB_CodeDep, "Entrez un code dep existant !");
-            this.TB_CodeDep.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_CodeDep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Echelon
@@ -125,7 +121,6 @@
             this.TB_Echelon.Size = new System.Drawing.Size(160, 20);
             this.TB_Echelon.TabIndex = 4;
             this.toolTip.SetToolTip(this.TB_Echelon, "Entrez un nombre positif !");
-            this.TB_Echelon.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_Echelon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Salaire
@@ -137,7 +132,6 @@
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 5;
             this.toolTip.SetToolTip(this.TB_Salaire, "Entre 25000 et 100000 ");
-            this.TB_Salaire.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Adresse
@@ -148,7 +142,6 @@
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 6;
-            this.TB_Adresse.TextChanged += new System.EventHandler(this.TextBoxChanged);
             this.TB_Adresse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
             // 
             // BTN_Suivant
@@ -412,18 +405,21 @@
             // 
             this.codedep.HeaderText = "Code";
             this.codedep.Name = "codedep";
+            this.codedep.ReadOnly = true;
             this.codedep.Width = 70;
             // 
             // departement
             // 
             this.departement.HeaderText = "Nom dép.";
             this.departement.Name = "departement";
+            this.departement.ReadOnly = true;
             this.departement.Width = 200;
             // 
             // nbr_emp
             // 
             this.nbr_emp.HeaderText = "Nbr_Emp";
             this.nbr_emp.Name = "nbr_emp";
+            this.nbr_emp.ReadOnly = true;
             this.nbr_emp.Width = 80;
             // 
             // LB_Information

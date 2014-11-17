@@ -297,7 +297,7 @@ namespace TP2
 
         private void BTN_Ajouter_Click(object sender, EventArgs e)
         {
-            if (TB_CodeDep.Text != "410" && TB_CodeDep.Text != "420" && TB_CodeDep.Text != "430" && TB_CodeDep.Text != "440" && TB_CodeDep.Text != "450")
+            if (TB_CodeDep.Text != "410" && TB_CodeDep.Text != "420" && TB_CodeDep.Text != "430" && TB_CodeDep.Text != "440" && TB_CodeDep.Text != "450" && TB_CodeDep.Text != "")
             {
                 MessageBox.Show("Erreur: Code de departement invalide." +
                                 "\n 410 - Administration" +

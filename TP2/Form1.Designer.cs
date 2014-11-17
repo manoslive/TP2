@@ -86,6 +86,7 @@
             this.TB_Nom.Enabled = false;
             this.TB_Nom.Location = new System.Drawing.Point(96, 47);
             this.TB_Nom.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Nom.MaxLength = 30;
             this.TB_Nom.Name = "TB_Nom";
             this.TB_Nom.Size = new System.Drawing.Size(160, 20);
             this.TB_Nom.TabIndex = 1;
@@ -96,6 +97,7 @@
             this.TB_Prenom.Enabled = false;
             this.TB_Prenom.Location = new System.Drawing.Point(96, 68);
             this.TB_Prenom.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Prenom.MaxLength = 30;
             this.TB_Prenom.Name = "TB_Prenom";
             this.TB_Prenom.Size = new System.Drawing.Size(160, 20);
             this.TB_Prenom.TabIndex = 2;
@@ -106,6 +108,7 @@
             this.TB_CodeDep.Enabled = false;
             this.TB_CodeDep.Location = new System.Drawing.Point(96, 89);
             this.TB_CodeDep.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_CodeDep.MaxLength = 4;
             this.TB_CodeDep.Name = "TB_CodeDep";
             this.TB_CodeDep.Size = new System.Drawing.Size(160, 20);
             this.TB_CodeDep.TabIndex = 3;
@@ -117,6 +120,7 @@
             this.TB_Echelon.Enabled = false;
             this.TB_Echelon.Location = new System.Drawing.Point(96, 110);
             this.TB_Echelon.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Echelon.MaxLength = 2;
             this.TB_Echelon.Name = "TB_Echelon";
             this.TB_Echelon.Size = new System.Drawing.Size(160, 20);
             this.TB_Echelon.TabIndex = 4;
@@ -128,6 +132,7 @@
             this.TB_Salaire.Enabled = false;
             this.TB_Salaire.Location = new System.Drawing.Point(96, 131);
             this.TB_Salaire.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Salaire.MaxLength = 8;
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 5;
@@ -139,6 +144,7 @@
             this.TB_Adresse.Enabled = false;
             this.TB_Adresse.Location = new System.Drawing.Point(96, 151);
             this.TB_Adresse.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Adresse.MaxLength = 60;
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 6;

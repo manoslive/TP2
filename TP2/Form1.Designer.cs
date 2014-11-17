@@ -351,6 +351,7 @@
             this.RB_Tous.Text = "Tous les employés";
             this.RB_Tous.UseVisualStyleBackColor = true;
             this.RB_Tous.CheckedChanged += new System.EventHandler(this.RB_Tous_CheckedChanged);
+            this.RB_Tous.Click += new System.EventHandler(this.RB_Click);
             // 
             // RB_UnEmploye
             // 
@@ -364,6 +365,7 @@
             this.RB_UnEmploye.Text = "Nom d\'employé";
             this.RB_UnEmploye.UseVisualStyleBackColor = true;
             this.RB_UnEmploye.CheckedChanged += new System.EventHandler(this.RB_UnEmploye_CheckedChanged);
+            this.RB_UnEmploye.Click += new System.EventHandler(this.RB_Click);
             // 
             // RB_Departement
             // 
@@ -377,6 +379,7 @@
             this.RB_Departement.Text = "Département";
             this.RB_Departement.UseVisualStyleBackColor = true;
             this.RB_Departement.CheckedChanged += new System.EventHandler(this.RB_Departement_CheckedChanged);
+            this.RB_Departement.Click += new System.EventHandler(this.RB_Click);
             // 
             // LB_Recherche
             // 

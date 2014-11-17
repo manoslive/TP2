@@ -427,6 +427,7 @@ namespace TP2
             CB_Dep.Visible = false;
             TB_NomRecherche.Text = "";
             //ChoixRechercher();
+            RadiobuttonClick();
         }
 
         private void BTN_Recherche_Click(object sender, EventArgs e)
@@ -469,7 +470,8 @@ namespace TP2
             CB_Dep.Visible = true;
             TB_NomRecherche.Text = "";
             //ChoixRechercher();
-            CB_Dep.SelectedItem = 2; 
+            CB_Dep.SelectedItem = 2;
+            RadiobuttonClick();
         }
 
         private void CB_Dep_SelectedIndexChanged(object sender, EventArgs e)

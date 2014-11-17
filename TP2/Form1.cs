@@ -309,44 +309,44 @@ namespace TP2
             }
             else
             {
-                string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
+            string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
 
-                try
-                {
-                    OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
-                    oraCom.CommandType = CommandType.Text;
-                    OracleDataReader OraRead = oraCom.ExecuteReader();
-                    //réglages de boutons
-                    BTN_Debut.Enabled = true;
-                    BTN_FIN.Enabled = true;
-                    BTN_Suivant.Enabled = true;
-                    BTN_Precedent.Enabled = true;
-                    BTN_Modifier.Enabled = true;
-                    BTN_Afficher.Enabled = false;
-                    BTN_Ajouter.Enabled = false;
-                    BTN_Supprimer.Enabled = true;
+            try
+            {
+                OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
+                oraCom.CommandType = CommandType.Text;
+                OracleDataReader OraRead = oraCom.ExecuteReader();
+                //réglages de boutons
+                BTN_Debut.Enabled = true;
+                BTN_FIN.Enabled = true;
+                BTN_Suivant.Enabled = true;
+                BTN_Precedent.Enabled = true;
+                BTN_Modifier.Enabled = true;
+                BTN_Afficher.Enabled = false;
+                BTN_Ajouter.Enabled = false;
+                BTN_Supprimer.Enabled = true;
 
-                    //réglages des txtbox
-                    TB_Empno.Enabled = false;
-                    TB_Nom.Enabled = false;
-                    TB_Prenom.Enabled = false;
-                    TB_Salaire.Enabled = false;
-                    TB_Echelon.Enabled = false;
-                    TB_CodeDep.Enabled = false;
-                    TB_Adresse.Enabled = false;
+                //réglages des txtbox
+                TB_Empno.Enabled = false;
+                TB_Nom.Enabled = false;
+                TB_Prenom.Enabled = false;
+                TB_Salaire.Enabled = false;
+                TB_Echelon.Enabled = false;
+                TB_CodeDep.Enabled = false;
+                TB_Adresse.Enabled = false;
 
-                    //Affichage des informations
-                    AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
-
-                    //ajuster les informations du dgv et l'info
-                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
-                    FillDGVDepartement();
-                }
-                catch (OracleException exsql1)
-                {
-                    MessageBox.Show(exsql1.Message.ToString());
-                }
+                //Affichage des informations
+                AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+                                        
+                //ajuster les informations du dgv et l'info
+                LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                FillDGVDepartement();
             }
+            catch (OracleException exsql1)
+            {
+                MessageBox.Show(exsql1.Message.ToString());
+            }            
+        }
         }
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
@@ -489,7 +489,16 @@ namespace TP2
             BTN_Modifier.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
-            BTN_Afficher.Enabled = true;
+            BTN_Afficher.Enabled = true;  
+        }
+
+        private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric, lettre ou le backspace ou espace..
+            if (e.KeyChar != 8 && !char.IsLetter(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
         }
     }
 }

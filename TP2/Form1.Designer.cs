@@ -142,7 +142,8 @@
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 6;
-            this.TB_Adresse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
+            this.TB_Adresse.TextChanged += new System.EventHandler(this.TextBoxChanged);
+            this.TB_Adresse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Adresse_KeyPress);
             // 
             // BTN_Suivant
             // 

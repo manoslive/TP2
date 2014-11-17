@@ -142,6 +142,7 @@
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 19;
             this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
+            this.TB_Salaire.Leave += new System.EventHandler(this.TB_Salaire_Leave);
             // 
             // TB_Prenom
             // 

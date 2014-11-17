@@ -72,5 +72,10 @@ namespace TP2
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
             }
         }
+
+        private void TB_Salaire_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

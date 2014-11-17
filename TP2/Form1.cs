@@ -307,7 +307,7 @@ namespace TP2
                                 "\n 450 - Logistique");
                 TB_CodeDep.Text = "";
             }
-            else if (Convert.ToInt32(TB_Salaire.Text) < 25000 || Convert.ToInt32(TB_Salaire.Text) > 100000)
+            else if (Convert.ToDecimal(TB_Salaire.Text) < 25000 || Convert.ToDecimal(TB_Salaire.Text) > 100000)
             {
                 MessageBox.Show("Erreur: Veuillez entrer un salaire entre 25000 et 100000!");
                 TB_Salaire.Text = "";

@@ -35,7 +35,7 @@ namespace TP2
             LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
             BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = false;
-            BTN_Modifier.Enabled = false;
+            BTN_Recherche.Enabled = false;
         }
 
         private void AfficherTexte(int position)
@@ -247,8 +247,6 @@ namespace TP2
 
         private void ChoixRechercher()
         {
-            // BTN_Recherche.Enabled = false;
-
             if (RB_Tous.Checked)
             {
                 BTN_Recherche.Enabled = true;
@@ -258,7 +256,6 @@ namespace TP2
             {
                 if (TB_NomRecherche.Text != "")
                 {
-                    BTN_Recherche.Enabled = true;
                     commandeRechercher = "select * from employes where nom like '" + TB_NomRecherche.Text + "%' order by empno";
                 }
             }
@@ -449,10 +446,12 @@ namespace TP2
         {
             if (RB_Tous.Checked)
             {
+                BTN_Recherche.Enabled = true;
                 LB_TextRecherche.Text = "";
                 TB_NomRecherche.Visible = false;
                 CB_Dep.Visible = false;
                 TB_NomRecherche.Text = "";
+                RadiobuttonClick();
             }
         }
 
@@ -469,7 +468,7 @@ namespace TP2
 
         private void CB_Dep_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            BTN_Recherche.Enabled = true;
         }
 
         private void TB_NomRecherche_TextChanged(object sender, EventArgs e)
@@ -495,7 +494,7 @@ namespace TP2
             }
         }
 
-        private void RB_Click(object sender, EventArgs e)
+        private void RadiobuttonClick()
         {
             BTN_Debut.Enabled = false;
             BTN_FIN.Enabled = false;
@@ -505,8 +504,9 @@ namespace TP2
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
             BTN_Afficher.Enabled = false;
-            BTN_Recherche.Enabled = true;
         }
+
+
 
         private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)
         {

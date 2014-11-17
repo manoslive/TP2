@@ -531,9 +531,21 @@ namespace TP2
 
         private void TB_Salaire_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == 46 && TB_Salaire.Text.Contains('.')  )
+            if(TB_Salaire.Text.Contains('.'))
             {
-                e.Handled = true;
+                string s = TB_Salaire.Text.Substring(TB_Salaire.Text.LastIndexOf('.'), TB_Salaire.Text.Length - TB_Salaire.Text.LastIndexOf('.'));
+                if (s.Length >= 3)
+                {
+                    if (e.KeyChar == 46 || char.IsNumber(e.KeyChar))
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (e.KeyChar == 46)
+                {
+                    e.Handled = true;
+                }
+
             }
             else
             {

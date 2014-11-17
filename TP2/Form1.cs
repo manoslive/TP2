@@ -302,7 +302,7 @@ namespace TP2
                 MessageBox.Show("Erreur: Code de departement invalide." +
                                 "\n 410 - Administration" +
                                 "\n 420 - Informatique" +
-                                "\n 430 - Électrique" +
+                                "\n 430 - Electrique" +
                                 "\n 440 - Robotique" +
                                 "\n 450 - Logistique");
                 TB_CodeDep.Text = "";

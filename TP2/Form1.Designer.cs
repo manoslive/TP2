@@ -498,10 +498,9 @@
             this.CB_Dep.Items.AddRange(new object[] {
             "410 - Administration",
             "420 - Informatique",
-            "430 - Électrique",
+            "430 - Electrique",
             "440 - Robotique",
-            "450 - Logistique",
-            ""});
+            "450 - Logistique"});
             this.CB_Dep.Location = new System.Drawing.Point(479, 188);
             this.CB_Dep.Margin = new System.Windows.Forms.Padding(2);
             this.CB_Dep.Name = "CB_Dep";
@@ -528,7 +527,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::TP2.Properties.Resources._9720142;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(642, 211);
+            this.pictureBox1.Location = new System.Drawing.Point(636, 211);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 93);
             this.pictureBox1.TabIndex = 16;
@@ -538,9 +537,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TP2.Properties.Resources.sebastien_Patoche;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(738, 425);
+            this.ClientSize = new System.Drawing.Size(744, 313);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CB_Dep);
             this.Controls.Add(this.TB_NomRecherche);

@@ -120,6 +120,7 @@
             // 
             this.TB_Adresse.Location = new System.Drawing.Point(102, 141);
             this.TB_Adresse.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Adresse.MaxLength = 60;
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 20;
@@ -129,6 +130,7 @@
             // 
             this.TB_CodeDep.Location = new System.Drawing.Point(102, 79);
             this.TB_CodeDep.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_CodeDep.MaxLength = 4;
             this.TB_CodeDep.Name = "TB_CodeDep";
             this.TB_CodeDep.Size = new System.Drawing.Size(160, 20);
             this.TB_CodeDep.TabIndex = 17;
@@ -138,6 +140,7 @@
             // 
             this.TB_Salaire.Location = new System.Drawing.Point(102, 121);
             this.TB_Salaire.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Salaire.MaxLength = 8;
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 19;
@@ -147,6 +150,7 @@
             // 
             this.TB_Prenom.Location = new System.Drawing.Point(102, 58);
             this.TB_Prenom.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Prenom.MaxLength = 30;
             this.TB_Prenom.Name = "TB_Prenom";
             this.TB_Prenom.Size = new System.Drawing.Size(160, 20);
             this.TB_Prenom.TabIndex = 16;
@@ -156,6 +160,7 @@
             // 
             this.TB_Echelon.Location = new System.Drawing.Point(102, 100);
             this.TB_Echelon.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Echelon.MaxLength = 2;
             this.TB_Echelon.Name = "TB_Echelon";
             this.TB_Echelon.Size = new System.Drawing.Size(160, 20);
             this.TB_Echelon.TabIndex = 18;
@@ -165,6 +170,7 @@
             // 
             this.TB_Nom.Location = new System.Drawing.Point(102, 37);
             this.TB_Nom.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Nom.MaxLength = 30;
             this.TB_Nom.Name = "TB_Nom";
             this.TB_Nom.Size = new System.Drawing.Size(160, 20);
             this.TB_Nom.TabIndex = 8;
@@ -175,6 +181,7 @@
             this.TB_Empno.Enabled = false;
             this.TB_Empno.Location = new System.Drawing.Point(102, 17);
             this.TB_Empno.Margin = new System.Windows.Forms.Padding(2);
+            this.TB_Empno.MaxLength = 6;
             this.TB_Empno.Name = "TB_Empno";
             this.TB_Empno.Size = new System.Drawing.Size(160, 20);
             this.TB_Empno.TabIndex = 7;

@@ -531,8 +531,8 @@ namespace TP2
 
         private void TB_Salaire_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //vérifie si la touche appuyé est différent qu'une touche lettre ou le backspace ou point..
-            if (e.KeyChar != (char)8 && !char.IsLetter(e.KeyChar) && e.KeyChar == Char.Parse(","))
+            //vérifie si la touche appuyé est différent qu'une touche num ou le backspace ou point..
+            if (e.KeyChar != 46 && e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
             }

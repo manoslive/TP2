@@ -182,6 +182,7 @@
             // BTN_Enregistrer
             // 
             this.BTN_Enregistrer.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.BTN_Enregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Enregistrer.Location = new System.Drawing.Point(51, 178);
             this.BTN_Enregistrer.Name = "BTN_Enregistrer";
             this.BTN_Enregistrer.Size = new System.Drawing.Size(88, 32);
@@ -193,6 +194,7 @@
             // BTN_Annuler
             // 
             this.BTN_Annuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BTN_Annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Annuler.Location = new System.Drawing.Point(145, 178);
             this.BTN_Annuler.Name = "BTN_Annuler";
             this.BTN_Annuler.Size = new System.Drawing.Size(88, 32);

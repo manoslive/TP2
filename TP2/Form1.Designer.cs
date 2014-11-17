@@ -67,7 +67,9 @@
             this.TB_NomRecherche = new System.Windows.Forms.TextBox();
             this.CB_Dep = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // TB_Empno
@@ -160,6 +162,7 @@
             // 
             // BTN_Suivant
             // 
+            this.BTN_Suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Suivant.Location = new System.Drawing.Point(93, 211);
             this.BTN_Suivant.Margin = new System.Windows.Forms.Padding(2);
@@ -172,6 +175,7 @@
             // 
             // BTN_Precedent
             // 
+            this.BTN_Precedent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Precedent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Precedent.Location = new System.Drawing.Point(22, 211);
             this.BTN_Precedent.Margin = new System.Windows.Forms.Padding(2);
@@ -254,6 +258,7 @@
             // 
             // BTN_Ajouter
             // 
+            this.BTN_Ajouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Ajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Ajouter.Location = new System.Drawing.Point(163, 185);
             this.BTN_Ajouter.Margin = new System.Windows.Forms.Padding(2);
@@ -266,6 +271,7 @@
             // 
             // BTN_Vider
             // 
+            this.BTN_Vider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Vider.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Vider.Location = new System.Drawing.Point(234, 185);
             this.BTN_Vider.Margin = new System.Windows.Forms.Padding(2);
@@ -278,6 +284,7 @@
             // 
             // BTN_Modifier
             // 
+            this.BTN_Modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Modifier.Location = new System.Drawing.Point(163, 211);
             this.BTN_Modifier.Margin = new System.Windows.Forms.Padding(2);
@@ -290,6 +297,7 @@
             // 
             // BTN_Debut
             // 
+            this.BTN_Debut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Debut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Debut.Location = new System.Drawing.Point(22, 185);
             this.BTN_Debut.Margin = new System.Windows.Forms.Padding(2);
@@ -302,6 +310,7 @@
             // 
             // BTN_FIN
             // 
+            this.BTN_FIN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_FIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_FIN.Location = new System.Drawing.Point(93, 185);
             this.BTN_FIN.Margin = new System.Windows.Forms.Padding(2);
@@ -314,6 +323,7 @@
             // 
             // BTN_Afficher
             // 
+            this.BTN_Afficher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Afficher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Afficher.Location = new System.Drawing.Point(234, 211);
             this.BTN_Afficher.Margin = new System.Windows.Forms.Padding(2);
@@ -336,6 +346,7 @@
             // 
             // BTN_Supprimer
             // 
+            this.BTN_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Supprimer.Location = new System.Drawing.Point(163, 237);
             this.BTN_Supprimer.Margin = new System.Windows.Forms.Padding(2);
@@ -448,6 +459,7 @@
             // 
             // BTN_Recherche
             // 
+            this.BTN_Recherche.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Recherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Recherche.Location = new System.Drawing.Point(333, 260);
             this.BTN_Recherche.Margin = new System.Windows.Forms.Padding(2);
@@ -497,11 +509,20 @@
             this.CB_Dep.Visible = false;
             this.CB_Dep.SelectedIndexChanged += new System.EventHandler(this.CB_Dep_SelectedIndexChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(636, 186);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(90, 94);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 292);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CB_Dep);
             this.Controls.Add(this.TB_NomRecherche);
             this.Controls.Add(this.LB_TextRecherche);
@@ -541,6 +562,7 @@
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Departements)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -586,6 +608,7 @@
         private System.Windows.Forms.TextBox TB_NomRecherche;
         private System.Windows.Forms.ComboBox CB_Dep;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -454,7 +454,8 @@ namespace TP2
             BTN_Modifier.Enabled = true;
             BTN_Ajouter.Enabled = true;
             BTN_Supprimer.Enabled = true;
-            BTN_Afficher.Enabled = false;  
+            BTN_Afficher.Enabled = false;
+            BTN_Annuler.Enabled = true;
         }
 
         private void RB_Tous_CheckedChanged(object sender, EventArgs e)
@@ -516,7 +517,7 @@ namespace TP2
             BTN_Modifier.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
-            BTN_Afficher.Enabled = false;  
+            BTN_Afficher.Enabled = false;
         }
 
         private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)
@@ -535,6 +536,13 @@ namespace TP2
             {
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
             }
+        }
+
+        private void BTN_Annuler_Click(object sender, EventArgs e)
+        {
+            ReinitialiserTB();
+            AfficherTexte(0);
+            BTN_Annuler.Enabled = false;
         }
     }
 }

@@ -393,6 +393,7 @@
             // 
             // DGV_Departements
             // 
+            this.DGV_Departements.AllowUserToAddRows = false;
             this.DGV_Departements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Departements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codedep,

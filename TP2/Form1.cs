@@ -256,13 +256,13 @@ namespace TP2
                 if (TB_NomRecherche.Text != "")
                 {
                     BTN_Recherche.Enabled = true;
-                    commandeRechercher = "select * from employes where nom like '" + TB_NomRecherche.Text + "%'";
+                    commandeRechercher = "select * from employes where nom like '" + TB_NomRecherche.Text + "%' order by empno";
                 }
             }
-            else if (RB_Departement.Checked)
+            else if (CB_Dep.SelectedItem != null && RB_Departement.Checked)
             {
                 BTN_Recherche.Enabled = true;
-                commandeRechercher = "select * from employes e inner join departements d on e.codedep = d.codedep where d.NomDepartement like '" + CB_Dep.Text + "'";
+                commandeRechercher = "select * from employes e inner join departements d on e.codedep = d.codedep where d.NomDepartement like '" + CB_Dep.SelectedItem.ToString().Remove(0, 6) + "' order by empno";
             }
         }
 
@@ -394,14 +394,25 @@ namespace TP2
             TB_NomRecherche.Visible = true;
             CB_Dep.Visible = false;
             TB_NomRecherche.Text = "";
-            ChoixRechercher();
+            //ChoixRechercher();
         }
 
         private void BTN_Recherche_Click(object sender, EventArgs e)
         {
+
+            ChoixRechercher();
             ReinitialiserTB();
             monDataSet.Clear();
             RemplirTextBox(commandeRechercher);
+
+            BTN_Debut.Enabled = true;
+            BTN_FIN.Enabled = true;
+            BTN_Suivant.Enabled = true;
+            BTN_Precedent.Enabled = true;
+            BTN_Modifier.Enabled = true;
+            BTN_Ajouter.Enabled = true;
+            BTN_Supprimer.Enabled = true;
+            BTN_Afficher.Enabled = false;  
         }
 
         private void RB_Tous_CheckedChanged(object sender, EventArgs e)
@@ -413,7 +424,6 @@ namespace TP2
                 CB_Dep.Visible = false;
                 TB_NomRecherche.Text = "";
             }
-            ChoixRechercher();
         }
 
         private void RB_Departement_CheckedChanged(object sender, EventArgs e)
@@ -423,7 +433,7 @@ namespace TP2
             TB_NomRecherche.Visible = false;
             CB_Dep.Visible = true;
             TB_NomRecherche.Text = "";
-            ChoixRechercher();
+            //ChoixRechercher();
             CB_Dep.SelectedItem = 2; 
         }
 
@@ -453,6 +463,18 @@ namespace TP2
             {
                 e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
             }
+        }
+
+        private void RB_Click(object sender, EventArgs e)
+        {
+            BTN_Debut.Enabled = false;
+            BTN_FIN.Enabled = false;
+            BTN_Suivant.Enabled = false;
+            BTN_Precedent.Enabled = false;
+            BTN_Modifier.Enabled = false;
+            BTN_Ajouter.Enabled = false;
+            BTN_Supprimer.Enabled = false;
+            BTN_Afficher.Enabled = true;  
         }
     }
 }

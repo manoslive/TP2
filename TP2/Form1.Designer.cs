@@ -74,7 +74,7 @@
             // 
             this.TB_Empno.Enabled = false;
             this.TB_Empno.Location = new System.Drawing.Point(96, 27);
-            this.TB_Empno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_Empno.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Empno.Name = "TB_Empno";
             this.TB_Empno.Size = new System.Drawing.Size(160, 20);
             this.TB_Empno.TabIndex = 0;
@@ -86,7 +86,7 @@
             // 
             this.TB_Nom.Enabled = false;
             this.TB_Nom.Location = new System.Drawing.Point(96, 47);
-            this.TB_Nom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_Nom.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Nom.Name = "TB_Nom";
             this.TB_Nom.Size = new System.Drawing.Size(160, 20);
             this.TB_Nom.TabIndex = 1;
@@ -97,7 +97,7 @@
             // 
             this.TB_Prenom.Enabled = false;
             this.TB_Prenom.Location = new System.Drawing.Point(96, 68);
-            this.TB_Prenom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_Prenom.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Prenom.Name = "TB_Prenom";
             this.TB_Prenom.Size = new System.Drawing.Size(160, 20);
             this.TB_Prenom.TabIndex = 2;
@@ -108,7 +108,7 @@
             // 
             this.TB_CodeDep.Enabled = false;
             this.TB_CodeDep.Location = new System.Drawing.Point(96, 89);
-            this.TB_CodeDep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_CodeDep.Margin = new System.Windows.Forms.Padding(2);
             this.TB_CodeDep.Name = "TB_CodeDep";
             this.TB_CodeDep.Size = new System.Drawing.Size(160, 20);
             this.TB_CodeDep.TabIndex = 3;
@@ -120,7 +120,7 @@
             // 
             this.TB_Echelon.Enabled = false;
             this.TB_Echelon.Location = new System.Drawing.Point(96, 110);
-            this.TB_Echelon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_Echelon.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Echelon.Name = "TB_Echelon";
             this.TB_Echelon.Size = new System.Drawing.Size(160, 20);
             this.TB_Echelon.TabIndex = 4;
@@ -132,7 +132,7 @@
             // 
             this.TB_Salaire.Enabled = false;
             this.TB_Salaire.Location = new System.Drawing.Point(96, 131);
-            this.TB_Salaire.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_Salaire.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 5;
@@ -144,7 +144,7 @@
             // 
             this.TB_Adresse.Enabled = false;
             this.TB_Adresse.Location = new System.Drawing.Point(96, 151);
-            this.TB_Adresse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_Adresse.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 6;
@@ -155,7 +155,7 @@
             // 
             this.BTN_Suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Suivant.Location = new System.Drawing.Point(93, 211);
-            this.BTN_Suivant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Suivant.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Suivant.Name = "BTN_Suivant";
             this.BTN_Suivant.Size = new System.Drawing.Size(67, 22);
             this.BTN_Suivant.TabIndex = 0;
@@ -167,7 +167,7 @@
             // 
             this.BTN_Precedent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Precedent.Location = new System.Drawing.Point(22, 211);
-            this.BTN_Precedent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Precedent.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Precedent.Name = "BTN_Precedent";
             this.BTN_Precedent.Size = new System.Drawing.Size(67, 22);
             this.BTN_Precedent.TabIndex = 0;
@@ -249,7 +249,7 @@
             // 
             this.BTN_Ajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Ajouter.Location = new System.Drawing.Point(163, 185);
-            this.BTN_Ajouter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Ajouter.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Ajouter.Name = "BTN_Ajouter";
             this.BTN_Ajouter.Size = new System.Drawing.Size(67, 22);
             this.BTN_Ajouter.TabIndex = 0;
@@ -261,7 +261,7 @@
             // 
             this.BTN_Vider.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Vider.Location = new System.Drawing.Point(234, 185);
-            this.BTN_Vider.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Vider.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Vider.Name = "BTN_Vider";
             this.BTN_Vider.Size = new System.Drawing.Size(67, 22);
             this.BTN_Vider.TabIndex = 0;
@@ -273,7 +273,7 @@
             // 
             this.BTN_Modifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Modifier.Location = new System.Drawing.Point(163, 211);
-            this.BTN_Modifier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Modifier.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Modifier.Name = "BTN_Modifier";
             this.BTN_Modifier.Size = new System.Drawing.Size(67, 22);
             this.BTN_Modifier.TabIndex = 0;
@@ -285,7 +285,7 @@
             // 
             this.BTN_Debut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Debut.Location = new System.Drawing.Point(22, 185);
-            this.BTN_Debut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Debut.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Debut.Name = "BTN_Debut";
             this.BTN_Debut.Size = new System.Drawing.Size(67, 22);
             this.BTN_Debut.TabIndex = 0;
@@ -297,7 +297,7 @@
             // 
             this.BTN_FIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_FIN.Location = new System.Drawing.Point(93, 185);
-            this.BTN_FIN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_FIN.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_FIN.Name = "BTN_FIN";
             this.BTN_FIN.Size = new System.Drawing.Size(67, 22);
             this.BTN_FIN.TabIndex = 0;
@@ -309,7 +309,7 @@
             // 
             this.BTN_Afficher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Afficher.Location = new System.Drawing.Point(234, 211);
-            this.BTN_Afficher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Afficher.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Afficher.Name = "BTN_Afficher";
             this.BTN_Afficher.Size = new System.Drawing.Size(67, 22);
             this.BTN_Afficher.TabIndex = 0;
@@ -331,7 +331,7 @@
             // 
             this.BTN_Supprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Supprimer.Location = new System.Drawing.Point(163, 237);
-            this.BTN_Supprimer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Supprimer.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Supprimer.Name = "BTN_Supprimer";
             this.BTN_Supprimer.Size = new System.Drawing.Size(67, 22);
             this.BTN_Supprimer.TabIndex = 0;
@@ -343,7 +343,7 @@
             // 
             this.RB_Tous.AutoSize = true;
             this.RB_Tous.Location = new System.Drawing.Point(333, 186);
-            this.RB_Tous.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RB_Tous.Margin = new System.Windows.Forms.Padding(2);
             this.RB_Tous.Name = "RB_Tous";
             this.RB_Tous.Size = new System.Drawing.Size(112, 17);
             this.RB_Tous.TabIndex = 11;
@@ -351,12 +351,13 @@
             this.RB_Tous.Text = "Tous les employés";
             this.RB_Tous.UseVisualStyleBackColor = true;
             this.RB_Tous.CheckedChanged += new System.EventHandler(this.RB_Tous_CheckedChanged);
+            this.RB_Tous.Click += new System.EventHandler(this.RB_Click);
             // 
             // RB_UnEmploye
             // 
             this.RB_UnEmploye.AutoSize = true;
             this.RB_UnEmploye.Location = new System.Drawing.Point(333, 205);
-            this.RB_UnEmploye.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RB_UnEmploye.Margin = new System.Windows.Forms.Padding(2);
             this.RB_UnEmploye.Name = "RB_UnEmploye";
             this.RB_UnEmploye.Size = new System.Drawing.Size(97, 17);
             this.RB_UnEmploye.TabIndex = 11;
@@ -364,12 +365,13 @@
             this.RB_UnEmploye.Text = "Nom d\'employé";
             this.RB_UnEmploye.UseVisualStyleBackColor = true;
             this.RB_UnEmploye.CheckedChanged += new System.EventHandler(this.RB_UnEmploye_CheckedChanged);
+            this.RB_UnEmploye.Click += new System.EventHandler(this.RB_Click);
             // 
             // RB_Departement
             // 
             this.RB_Departement.AutoSize = true;
             this.RB_Departement.Location = new System.Drawing.Point(333, 225);
-            this.RB_Departement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RB_Departement.Margin = new System.Windows.Forms.Padding(2);
             this.RB_Departement.Name = "RB_Departement";
             this.RB_Departement.Size = new System.Drawing.Size(86, 17);
             this.RB_Departement.TabIndex = 11;
@@ -377,6 +379,7 @@
             this.RB_Departement.Text = "Département";
             this.RB_Departement.UseVisualStyleBackColor = true;
             this.RB_Departement.CheckedChanged += new System.EventHandler(this.RB_Departement_CheckedChanged);
+            this.RB_Departement.Click += new System.EventHandler(this.RB_Click);
             // 
             // LB_Recherche
             // 
@@ -396,7 +399,7 @@
             this.departement,
             this.nbr_emp});
             this.DGV_Departements.Location = new System.Drawing.Point(287, 27);
-            this.DGV_Departements.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DGV_Departements.Margin = new System.Windows.Forms.Padding(2);
             this.DGV_Departements.Name = "DGV_Departements";
             this.DGV_Departements.RowTemplate.Height = 28;
             this.DGV_Departements.Size = new System.Drawing.Size(413, 119);
@@ -434,7 +437,7 @@
             // 
             this.BTN_Recherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Recherche.Location = new System.Drawing.Point(333, 260);
-            this.BTN_Recherche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BTN_Recherche.Margin = new System.Windows.Forms.Padding(2);
             this.BTN_Recherche.Name = "BTN_Recherche";
             this.BTN_Recherche.Size = new System.Drawing.Size(85, 22);
             this.BTN_Recherche.TabIndex = 0;
@@ -456,7 +459,7 @@
             // TB_NomRecherche
             // 
             this.TB_NomRecherche.Location = new System.Drawing.Point(479, 187);
-            this.TB_NomRecherche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TB_NomRecherche.Margin = new System.Windows.Forms.Padding(2);
             this.TB_NomRecherche.Name = "TB_NomRecherche";
             this.TB_NomRecherche.Size = new System.Drawing.Size(106, 20);
             this.TB_NomRecherche.TabIndex = 14;
@@ -474,7 +477,7 @@
             "450 - Logistique",
             ""});
             this.CB_Dep.Location = new System.Drawing.Point(479, 188);
-            this.CB_Dep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CB_Dep.Margin = new System.Windows.Forms.Padding(2);
             this.CB_Dep.Name = "CB_Dep";
             this.CB_Dep.Size = new System.Drawing.Size(152, 21);
             this.CB_Dep.TabIndex = 15;
@@ -520,7 +523,7 @@
             this.Controls.Add(this.TB_Echelon);
             this.Controls.Add(this.TB_Nom);
             this.Controls.Add(this.TB_Empno);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Main";
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.Form_Main_Load);

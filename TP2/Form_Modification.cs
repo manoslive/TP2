@@ -53,5 +53,24 @@ namespace TP2
             salaire_ = TB_Salaire.Text;
             adresse_ = TB_Adresse.Text;
         }
+
+
+        private void TextBox_Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric ou le backspace..
+            if (e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
+        }
+
+        private void TextBox_Lettre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric ou le backspace..
+            if (e.KeyChar != (char)8 && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
+        }
     }
 }

@@ -123,6 +123,7 @@
             this.TB_Adresse.Name = "TB_Adresse";
             this.TB_Adresse.Size = new System.Drawing.Size(160, 20);
             this.TB_Adresse.TabIndex = 20;
+            this.TB_Adresse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
             // 
             // TB_CodeDep
             // 
@@ -131,6 +132,7 @@
             this.TB_CodeDep.Name = "TB_CodeDep";
             this.TB_CodeDep.Size = new System.Drawing.Size(160, 20);
             this.TB_CodeDep.TabIndex = 17;
+            this.TB_CodeDep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Salaire
             // 
@@ -139,6 +141,7 @@
             this.TB_Salaire.Name = "TB_Salaire";
             this.TB_Salaire.Size = new System.Drawing.Size(160, 20);
             this.TB_Salaire.TabIndex = 19;
+            this.TB_Salaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Prenom
             // 
@@ -147,6 +150,7 @@
             this.TB_Prenom.Name = "TB_Prenom";
             this.TB_Prenom.Size = new System.Drawing.Size(160, 20);
             this.TB_Prenom.TabIndex = 16;
+            this.TB_Prenom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
             // 
             // TB_Echelon
             // 
@@ -155,6 +159,7 @@
             this.TB_Echelon.Name = "TB_Echelon";
             this.TB_Echelon.Size = new System.Drawing.Size(160, 20);
             this.TB_Echelon.TabIndex = 18;
+            this.TB_Echelon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // TB_Nom
             // 
@@ -163,6 +168,7 @@
             this.TB_Nom.Name = "TB_Nom";
             this.TB_Nom.Size = new System.Drawing.Size(160, 20);
             this.TB_Nom.TabIndex = 8;
+            this.TB_Nom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Lettre_KeyPress);
             // 
             // TB_Empno
             // 
@@ -171,6 +177,7 @@
             this.TB_Empno.Name = "TB_Empno";
             this.TB_Empno.Size = new System.Drawing.Size(160, 20);
             this.TB_Empno.TabIndex = 7;
+            this.TB_Empno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_Num_KeyPress);
             // 
             // BTN_Enregistrer
             // 

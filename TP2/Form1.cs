@@ -99,6 +99,13 @@ namespace TP2
         private void BTN_Vider_Click(object sender, EventArgs e)
         {
             Vider();
+            TB_Empno.Enabled = true;
+            TB_Nom.Enabled = true;
+            TB_Prenom.Enabled = true;
+            TB_Salaire.Enabled = true;
+            TB_Echelon.Enabled = true;
+            TB_CodeDep.Enabled = true;
+            TB_Adresse.Enabled = true;
         }
 
         private void BTN_Precedent_Click(object sender, EventArgs e)
@@ -130,6 +137,15 @@ namespace TP2
             BTN_Afficher.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = true;
+
+            //réglages des txtbox
+            TB_Empno.Enabled = false;
+            TB_Nom.Enabled = false;
+            TB_Prenom.Enabled = false;
+            TB_Salaire.Enabled = false;
+            TB_Echelon.Enabled = false;
+            TB_CodeDep.Enabled = false;
+            TB_Adresse.Enabled = false;
         }
 
         private void TextBoxChanged(object sender, EventArgs e)
@@ -245,44 +261,43 @@ namespace TP2
 
         private void BTN_Ajouter_Click(object sender, EventArgs e)
         {
-            //si les texts entré par l'usager son des lettres, ou des numéros, ou bien les 2..
-            if(/*TB_Adresse.Text.All(Char.IsLetterOrDigit) && <--- ça ne fonctionne pas!!! */TB_Nom.Text.All(Char.IsLetter)&& ///////// Probleme avec la vérif. de l'adresse
-                TB_Prenom.Text.All(Char.IsLetter) && TB_Empno.Text.All(Char.IsDigit) && TB_Salaire.Text.All(Char.IsDigit)&&
-                   TB_Echelon.Text.All(Char.IsDigit) && TB_CodeDep.Text.All(Char.IsDigit))
+            string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
+
+            try
             {
-                string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
+                OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
+                oraCom.CommandType = CommandType.Text;
+                OracleDataReader OraRead = oraCom.ExecuteReader();
+                //réglages de boutons
+                BTN_Debut.Enabled = true;
+                BTN_FIN.Enabled = true;
+                BTN_Suivant.Enabled = true;
+                BTN_Precedent.Enabled = true;
+                BTN_Modifier.Enabled = true;
+                BTN_Afficher.Enabled = false;
+                BTN_Ajouter.Enabled = false;
+                BTN_Supprimer.Enabled = true;
 
-                try
-                {
-                    OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
-                    oraCom.CommandType = CommandType.Text;
-                    OracleDataReader OraRead = oraCom.ExecuteReader();
-                    //réglages de boutons
-                    BTN_Debut.Enabled = true;
-                    BTN_FIN.Enabled = true;
-                    BTN_Suivant.Enabled = true;
-                    BTN_Precedent.Enabled = true;
-                    BTN_Modifier.Enabled = true;
-                    BTN_Afficher.Enabled = false;
-                    BTN_Ajouter.Enabled = false;
-                    BTN_Supprimer.Enabled = true;
+                //réglages des txtbox
+                TB_Empno.Enabled = false;
+                TB_Nom.Enabled = false;
+                TB_Prenom.Enabled = false;
+                TB_Salaire.Enabled = false;
+                TB_Echelon.Enabled = false;
+                TB_CodeDep.Enabled = false;
+                TB_Adresse.Enabled = false;
 
-                    //Affichage des informations
-                    AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+                //Affichage des informations
+                AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
                                         
-                    //ajuster les informations du dgv et l'info
-                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
-                    FillDGVDepartement();
-                }
-                catch (OracleException exsql1)
-                {
-                    MessageBox.Show(exsql1.Message.ToString());
-                }
+                //ajuster les informations du dgv et l'info
+                LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                FillDGVDepartement();
             }
-            else
+            catch (OracleException exsql1)
             {
-                MessageBox.Show("Soyez certain que les champs sont remplis avec les bons types de caractères ");
-            }
+                MessageBox.Show(exsql1.Message.ToString());
+            }            
         }
 
         private void BTN_Supprimer_Click(object sender, EventArgs e)
@@ -386,6 +401,24 @@ namespace TP2
         private void TB_NomRecherche_TextChanged(object sender, EventArgs e)
         {
             BTN_Recherche.Enabled = true;
+        }
+
+        private void TextBox_Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric ou le backspace..
+            if (e.KeyChar != (char)8 && !char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
+        }
+
+        private void TextBox_Lettre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric ou le backspace..
+            if (e.KeyChar != (char)8 && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
         }
     }
 }

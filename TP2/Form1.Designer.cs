@@ -511,7 +511,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(636, 186);
+            this.pictureBox1.BackgroundImage = global::TP2.Properties.Resources._9720142;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(636, 188);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(90, 94);
             this.pictureBox1.TabIndex = 16;
@@ -521,6 +523,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(738, 292);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CB_Dep);

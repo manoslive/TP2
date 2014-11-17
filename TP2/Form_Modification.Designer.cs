@@ -173,6 +173,7 @@
             // 
             // TB_Empno
             // 
+            this.TB_Empno.Enabled = false;
             this.TB_Empno.Location = new System.Drawing.Point(102, 17);
             this.TB_Empno.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Empno.Name = "TB_Empno";

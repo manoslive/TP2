@@ -35,6 +35,7 @@ namespace TP2
             LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
             BTN_Ajouter.Enabled = false;
             BTN_Afficher.Enabled = false;
+            BTN_Modifier.Enabled = false;
         }
 
         private void AfficherTexte(int position)
@@ -246,7 +247,7 @@ namespace TP2
 
         private void ChoixRechercher()
         {
-            BTN_Recherche.Enabled = false;
+            // BTN_Recherche.Enabled = false;
 
             if (RB_Tous.Checked)
             {
@@ -399,24 +400,21 @@ namespace TP2
                 try
                 {
                     string sqlUpdate = "Update Employes Set Empno=" + modifier.empno_ + ", nom='" + modifier.nom_ + "', prenom='" + modifier.prenom_ + "', salaire=" + modifier.salaire_ + ", echelon =" + modifier.echelon_ + ", adresse='" + modifier.adresse_ + "', codedep= " + modifier.codeDep_ + " where empno =" + TB_Empno.Text;
-                    string sqlVerificationEmpno = "select empno from employes where empno =" + modifier.empno_;
+                    //string sqlVerificationEmpno = "select empno from employes where empno =" + modifier.empno_;
 
-                    OracleCommand oraComVerif = new OracleCommand(sqlVerificationEmpno, oracon);
-                    oraComVerif.CommandType = CommandType.Text;
-                    OracleDataReader OraReadVerif = oraComVerif.ExecuteReader();
-                    if (OraReadVerif.HasRows)
-                    {
-                        MessageBox.Show("Le numéro d'employé est déja assigné!");
-                    }
-                    else
-                    {
+                    //OracleCommand oraComVerif = new OracleCommand(sqlVerificationEmpno, oracon);
+                    //oraComVerif.CommandType = CommandType.Text;
+                    //OracleDataReader OraReadVerif = oraComVerif.ExecuteReader();
+                    //if (OraReadVerif.HasRows)
+                    //{
+                    //    MessageBox.Show("Le numéro d'employé est déja assigné!");
+                    //}
                         ReinitialiserTB();
                         OracleCommand oraCom = new OracleCommand(sqlUpdate, oracon);
                         oraCom.CommandType = CommandType.Text;
                         OracleDataReader OraRead = oraCom.ExecuteReader();
                         //Affichage des informations
                         AfficherTexte(this.BindingContext[monDataSet, "TableEmployes"].Position); 
-                    }
                 }
                 catch (OracleException exsql1)
                 {
@@ -518,6 +516,7 @@ namespace TP2
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
             BTN_Afficher.Enabled = false;
+            BTN_Recherche.Enabled = true;
         }
 
         private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)

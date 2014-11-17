@@ -79,7 +79,8 @@ namespace TP2
             BTN_Modifier.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
-            BTN_Afficher.Enabled = true;   
+            BTN_Afficher.Enabled = true;
+            BTN_Recherche.Enabled = false;
         }
 
         private void Lier(int position)
@@ -168,6 +169,7 @@ namespace TP2
             BTN_Afficher.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = true;
+            BTN_Recherche.Enabled = false;
 
             //réglages des txtbox
             TB_Empno.Enabled = false;

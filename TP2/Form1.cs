@@ -476,7 +476,16 @@ namespace TP2
             BTN_Modifier.Enabled = false;
             BTN_Ajouter.Enabled = false;
             BTN_Supprimer.Enabled = false;
-            BTN_Afficher.Enabled = true;  
+            BTN_Afficher.Enabled = true;
+        }
+
+        private void TB_Adresse_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //vérifie si la touhe appuyé est différent qu'une touche numéric, lettre ou le backspace ou espace..
+            if (e.KeyChar != 8 && !char.IsLetter(e.KeyChar) && !char.IsNumber(e.KeyChar) && e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = true;//set event handled à true pour "canceller"(rien faire) lorsque le KeyPress est activé
+            }
         }
     }
 }

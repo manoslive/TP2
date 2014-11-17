@@ -314,38 +314,50 @@ namespace TP2
             }
             else
             {
+                string sqlVerificationEmpno = "select empno from employes where empno =" + TB_Empno.Text;
                 string sqlInsert = "Insert into Employes Values(" + TB_Empno.Text + ", '" + TB_Nom.Text + "','" + TB_Prenom.Text + "'," + TB_Salaire.Text + "," + TB_Echelon.Text + ",'" + TB_Adresse.Text + "', " + TB_CodeDep.Text + ")";
 
                 try
                 {
-                    OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
-                    oraCom.CommandType = CommandType.Text;
-                    OracleDataReader OraRead = oraCom.ExecuteReader();
-                    //réglages de boutons
-                    BTN_Debut.Enabled = true;
-                    BTN_FIN.Enabled = true;
-                    BTN_Suivant.Enabled = true;
-                    BTN_Precedent.Enabled = true;
-                    BTN_Modifier.Enabled = true;
-                    BTN_Afficher.Enabled = false;
-                    BTN_Ajouter.Enabled = false;
-                    BTN_Supprimer.Enabled = true;
+                    OracleCommand oraComVerif = new OracleCommand(sqlVerificationEmpno, oracon);
+                    oraComVerif.CommandType = CommandType.Text;
+                    OracleDataReader OraReadVerif = oraComVerif.ExecuteReader();
+                    if(OraReadVerif.HasRows)
+                    {
+                        MessageBox.Show("Le numéro d'employé est déja assigné!");
+                    }
+                    else
+                    {
+                        OracleCommand oraCom = new OracleCommand(sqlInsert, oracon);
+                        oraCom.CommandType = CommandType.Text;
+                        OracleDataReader OraRead = oraCom.ExecuteReader();
+                        //réglages de boutons
+                        BTN_Debut.Enabled = true;
+                        BTN_FIN.Enabled = true;
+                        BTN_Suivant.Enabled = true;
+                        BTN_Precedent.Enabled = true;
+                        BTN_Modifier.Enabled = true;
+                        BTN_Afficher.Enabled = false;
+                        BTN_Ajouter.Enabled = false;
+                        BTN_Supprimer.Enabled = true;
 
-                    //réglages des txtbox
-                    TB_Empno.Enabled = false;
-                    TB_Nom.Enabled = false;
-                    TB_Prenom.Enabled = false;
-                    TB_Salaire.Enabled = false;
-                    TB_Echelon.Enabled = false;
-                    TB_CodeDep.Enabled = false;
-                    TB_Adresse.Enabled = false;
+                        //réglages des txtbox
+                        TB_Empno.Enabled = false;
+                        TB_Nom.Enabled = false;
+                        TB_Prenom.Enabled = false;
+                        TB_Salaire.Enabled = false;
+                        TB_Echelon.Enabled = false;
+                        TB_CodeDep.Enabled = false;
+                        TB_Adresse.Enabled = false;
 
-                    //Affichage des informations
-                    AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
+                        //Affichage des informations
+                        AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
 
-                    //ajuster les informations du dgv et l'info
-                    LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
-                    FillDGVDepartement();
+                        //ajuster les informations du dgv et l'info
+                        LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
+                        FillDGVDepartement();
+                    }
+                    
                 }
                 catch (OracleException exsql1)
                 {
@@ -387,14 +399,24 @@ namespace TP2
                 try
                 {
                     string sqlUpdate = "Update Employes Set Empno=" + modifier.empno_ + ", nom='" + modifier.nom_ + "', prenom='" + modifier.prenom_ + "', salaire=" + modifier.salaire_ + ", echelon =" + modifier.echelon_ + ", adresse='" + modifier.adresse_ + "', codedep= " + modifier.codeDep_ + " where empno =" + TB_Empno.Text;
+                    string sqlVerificationEmpno = "select empno from employes where empno =" + TB_Empno.Text;
 
-                    ReinitialiserTB();
-                    OracleCommand oraCom = new OracleCommand(sqlUpdate, oracon);
-                    oraCom.CommandType = CommandType.Text;
-                    OracleDataReader OraRead = oraCom.ExecuteReader();
-
-                    //Affichage des informations
-                    AfficherTexte(this.BindingContext[monDataSet, "TableEmployes"].Position); 
+                    OracleCommand oraComVerif = new OracleCommand(sqlVerificationEmpno, oracon);
+                    oraComVerif.CommandType = CommandType.Text;
+                    OracleDataReader OraReadVerif = oraComVerif.ExecuteReader();
+                    if (OraReadVerif.HasRows)
+                    {
+                        MessageBox.Show("Le numéro d'employé est déja assigné!");
+                    }
+                    else
+                    {
+                        ReinitialiserTB();
+                        OracleCommand oraCom = new OracleCommand(sqlUpdate, oracon);
+                        oraCom.CommandType = CommandType.Text;
+                        OracleDataReader OraRead = oraCom.ExecuteReader();
+                        //Affichage des informations
+                        AfficherTexte(this.BindingContext[monDataSet, "TableEmployes"].Position); 
+                    }
                 }
                 catch (OracleException exsql1)
                 {

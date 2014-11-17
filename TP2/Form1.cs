@@ -269,9 +269,7 @@ namespace TP2
 
                     //Affichage des informations
                     AfficherTexte(0); //il faut appeller cette fonction pour permettre au suivant,prec.,début et fin de marcher
-                    
-                    //this.BindingContext[monDataSet, "TableEmployes"].Position = Convert.ToInt32(TB_Empno.Text); //j'essaie de faire afficher l'employé qui vien de se faire ajouter
-                    
+                                        
                     //ajuster les informations du dgv et l'info
                     LB_Information.Text = "Employé (" + this.BindingContext[monDataSet, "TableEmployes"].Count.ToString() + " résultats)";
                     FillDGVDepartement();

@@ -399,7 +399,7 @@ namespace TP2
                 try
                 {
                     string sqlUpdate = "Update Employes Set Empno=" + modifier.empno_ + ", nom='" + modifier.nom_ + "', prenom='" + modifier.prenom_ + "', salaire=" + modifier.salaire_ + ", echelon =" + modifier.echelon_ + ", adresse='" + modifier.adresse_ + "', codedep= " + modifier.codeDep_ + " where empno =" + TB_Empno.Text;
-                    string sqlVerificationEmpno = "select empno from employes where empno =" + TB_Empno.Text;
+                    string sqlVerificationEmpno = "select empno from employes where empno =" + modifier.empno_;
 
                     OracleCommand oraComVerif = new OracleCommand(sqlVerificationEmpno, oracon);
                     oraComVerif.CommandType = CommandType.Text;
